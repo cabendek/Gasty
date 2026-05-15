@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Gasty",
+    "slug": "gasty",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "gasty",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.cabendek.gasty",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.cabendek.gasty"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "iosDisplayInForeground": true
+        }
+      ],
+      "expo-asset",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f07344f1-92e9-4ea7-bf14-fd1ccb6b419b"
+      }
+    }
+  }
+}

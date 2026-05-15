@@ -1,0 +1,994 @@
+Delivered-To: cbendekjara@gmail.com
+Received: by 2002:a05:7022:ba7:b0:127:962a:a9da with SMTP id cy39csp93720dlb;
+        Mon, 27 Apr 2026 13:11:37 -0700 (PDT)
+X-Received: by 2002:a05:620a:318b:b0:8cd:b317:d69f with SMTP id af79cd13be357-8f7cd97463bmr37805685a.17.1777320697716;
+        Mon, 27 Apr 2026 13:11:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777320697; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BbOedF34G3dsuwJNvpqFL70sPoUWGtLnneb8+q7HRRM+bUq7R4f1l7rvF6WWtzEoot
+         a5BVJt7GYe6+Qoj99B0KRqyRfvFyROo0/yUbowpoMu9TNXeGcOoo6y0/8VC19yPeHWQ1
+         gE0ZZHS8wGeJRPqYw8SC90I4/KRLMHxFYjUVvuUOfyyO/lwfQfQzrwFjZmuHgsDtBz7K
+         6DGZl8/0vn4L6FD02H8KcCH2ZYhSbBnaE5lLZBY7yzCDyegDdd1ed96u+r/0OqjNbm96
+         udmefhKxtBuJdIV2bQGpXINjuLX7PIopLKtRmB+Xr1OzRBTxhPgTF0XMP8Kiv2xxxc0R
+         9XNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:reply-to:list-unsubscribe-post:list-unsubscribe:mime-version
+         :subject:message-id:from:date:dkim-signature:dkim-signature;
+        bh=OoqUNmuDZ9IGG2M2BSpNYkOUG5dNH5sV3TCPZVT9mQI=;
+        fh=6KV/773QQ8SLVq70Xr8WQ3nEJ3VYwH6vkQFtMVhOrp0=;
+        b=KhApjBEW/9YD+UPCyIl2PCj/DoFGbz53Gyytd4km4wBBBUgjk+a4HIonhWYVWGhOfL
+         BbK7IXIo9+uUoNAnT5iFOOjw50uqNxGUdSWPydWEvifbjwDuYqbOwaN9AEZb6pCVTob3
+         SP5/QmYXkIksN5MtXsmj+FwjJ64cGWdJfIbtOoN3edyT69g/gGPnTO4zVikEtWRSonry
+         04/v+7K5dtfo+mdOIBXrUaG/ogtJNHkTiZzF/ikbIrKtSevq/bwN4RVN5rMuKhE+aV4V
+         cIRq8QDBSIvzGI8AZlst/cpsnL1Bq/XYjG6qWaONy/FnrlHERc+H1OgqQT0i07kuDgyS
+         qetw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@tenpo.cl header.s=tenpoct header.b=jPUuhQaJ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=vkisiUHL;
+       spf=pass (google.com: domain of bounces+97746323-8caf-cbendekjara=gmail.com@info.tenpo.cl designates 149.72.247.213 as permitted sender) smtp.mailfrom="bounces+97746323-8caf-cbendekjara=gmail.com@info.tenpo.cl";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=tenpo.cl
+Return-Path: <bounces+97746323-8caf-cbendekjara=gmail.com@info.tenpo.cl>
+Received: from wrqvftdr.outbound-mail.sendgrid.net (wrqvftdr.outbound-mail.sendgrid.net. [149.72.247.213])
+        by mx.google.com with ESMTPS id af79cd13be357-8f7c4ad111esi28769285a.44.2026.04.27.13.11.37
+        for <cbendekjara@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Apr 2026 13:11:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+97746323-8caf-cbendekjara=gmail.com@info.tenpo.cl designates 149.72.247.213 as permitted sender) client-ip=149.72.247.213;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@tenpo.cl header.s=tenpoct header.b=jPUuhQaJ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=vkisiUHL;
+       spf=pass (google.com: domain of bounces+97746323-8caf-cbendekjara=gmail.com@info.tenpo.cl designates 149.72.247.213 as permitted sender) smtp.mailfrom="bounces+97746323-8caf-cbendekjara=gmail.com@info.tenpo.cl";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=tenpo.cl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tenpo.cl;
+	h=date:from:subject:mime-version:content-type:list-unsubscribe:
+	list-unsubscribe-post:reply-to:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=tenpoct; t=1777320696; bh=OoqUNmuDZ9IGG2M2BSpNYkOUG5dNH5sV3TCPZVT9mQI=;
+	b=jPUuhQaJeyXwfbucWkH9/j+jmJWbLBFQxe4mVzHFaCG2GeZHQhDImWesACBufkV0G7b1
+	Y16iQwS83lGVdrvR12s//XH8RGEkt11X/jMMzXsMDgAIPVVvX//8+EDT9AP3zbcNHtX0Lf
+	LNYXw3X627pXF+5Xvzfka2nrRPjq6JKqph8EXZULxmE9B9Y/RZTvoHOuF7tXb3nfIosT8G
+	LGnDSWLqylNRdq7loRkhB0F+YAh1RWf+NuNnJ4h/FnJmT/OIxKTbCbFfcY4crTyZCCAnay
+	8eVAOJH979KH3LLtFRdhVUJO79GRH3fC2mBCqjKIR/fDT04FgrUkiF9j9UScvnMQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=date:from:subject:mime-version:content-type:list-unsubscribe:
+	list-unsubscribe-post:reply-to:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1777320696; bh=OoqUNmuDZ9IGG2M2BSpNYkOUG5dNH5sV3TCPZVT9mQI=;
+	b=vkisiUHLSIXqBFYYjCFmoPJ4rgikbtHn/mQcfWnlUQG6+sHklI8nLANzJjslKdbB4E1d
+	s8GMF8BzMiHF2XYp298Dc7SKh99Dq1SXYD4yJCoYbLi0sZszq37iVBBLSruw1z3y4bU2BJ
+	HZVs/HGUCGNszpTjV0o5rSn3xLS8DiRuA=
+Received: by recvd-5d54cfbfdf-xb5ng with SMTP id recvd-5d54cfbfdf-xb5ng-1-69EFC2F8-80
+	2026-04-27 20:11:36.868712667 +0000 UTC m=+512506.876486242
+Received: from EnterpriseUsTesseract1Shard022 (unknown)
+	by geopod-ismtpd-15 (SG) with ESMTP id zq6hHUe6TSKnDEcg3LlLYg
+	for <cbendekjara@gmail.com>; Mon, 27 Apr 2026 20:11:36.737 +0000 (UTC)
+Date: Mon, 27 Apr 2026 20:11:36 +0000 (UTC)
+From: Tenpo <paratodos@tenpo.cl>
+Message-ID: <1266829435.3824586.1777320696676@ip-10-11-51-219.eu-west-1.compute.internal>
+Subject: En abril, tus compras =?UTF-8?B?c3VtYW7wn5Kw?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_3824570_1708309535.1777320696672"
+X-CleverTap_META: cbendekjara@gmail.com|1579878272|1777302544|20260427|0|wzrk_default|-14917155|-1|-1|
+X-CLEVERTAP_METADATA: {"X-CLEVERTAP_TARGET_ID": 1777302544, "X-CLEVERTAP_IID": {"$numberLong": "14917155"}, "X-CLEVERTAP_IDN": {"$numberLong": "14917155"}, "X-CLEVERTAP_PIVOT": "wzrk_default"}
+X-Nep-Ff: 36D86130-ED3B-4DFD-8930-A7EE48B78E18
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Chttps=3A=2F=2Feu1=2Eclevertap-prod=2Ecom=2Funsubscribe=3Fhosting=5Ftype=3Dsyste?=
+ =?us-ascii?Q?m&one=5Fclick=3Dtrue&sub=3D0&p=3DLHg7IlYSCxQseH?=
+ =?us-ascii?Q?YlIjcwLkB8XloweGhrdWtmcgMHAAFieC9nd3g7L?=
+ =?us-ascii?Q?1wSCxQseHYlIjcwLkB8XloweGhrdWtmcgMHAAFi?=
+ =?us-ascii?Q?eC9nd3giIkRfRRZtenA8LSg5FFZVV1UiNiZpe3p?=
+ =?us-ascii?Q?wKGdDaBZteilpczQnJlBVQ3g4NDVpbXpwexBNTA?=
+ =?us-ascii?Q?%3D%3D&e=3DZm9lcgoHCQZgaE16YG1leAICBABjRW?=
+ =?us-ascii?Q?B7ZWxifwAHLlc1PzwvMjE4KkBRcVM6OzsneTk9J?=
+ =?us-ascii?Q?i14ZXkb&encoded=3Dtrue&wzrk=5Fex=3D0=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Reply-To: paratodos@tenpo.cl
+X-SG-EID: 
+ =?us-ascii?Q?u001=2E1=2F=2F=2FLwnbraUBaVSz1z6nCkNbutuK+OcALERthGaCbT0iNqpbJguVlVLE0?=
+ =?us-ascii?Q?48tjX7vHmvDAlriLRgAqBARMlNj7zu3tfY4jlNY?=
+ =?us-ascii?Q?yg6uSMz65tn3Z3+wa9EqxbS6rRbxxkaWwjpB4yH?=
+ =?us-ascii?Q?Z3VJziy0mxamKGJVWSFbNhbPecHqpAbQt2CEXp=2F?=
+ =?us-ascii?Q?cQ1lXUItbpv9App=2FLjY7MSwsO6keXsxhbyuJybJ?=
+ =?us-ascii?Q?2OWTV1PwatBpcagVh16vag=3D?=
+To: cbendekjara@gmail.com
+X-Entity-ID: u001.gPm5WkNjdBUe45NIgbpRKQ==
+
+------=_Part_3824570_1708309535.1777320696672
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html> <!doctype html=3D"" public=3D""> <html dir=3D"ltr" lang=3D"=
+es" style=3D"box-sizing:border-box" xmlns=3D"http://www.w3.org/1999/xhtml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office"> <head style=3D"box-siz=
+ing:border-box">  <title style=3D"box-sizing:border-box"></title>  <!--[if =
+(mso 16)]><style type=3D"text/css">     a {text-decoration: none;}     </st=
+yle><![endif]--><!--[if gte mso 9]><style>sup { font-size: 100% !important;=
+ }</style> <![endif]--><!--[if gte mso 9]><noscript> <xml> <o:OfficeDocumen=
+tSettings> <o:AllowPNG></o:AllowPNG> <o:PixelsPerInch>96</o:PixelsPerInch> =
+</o:OfficeDocumentSettings> </xml> </noscript><![endif]--><!--[if mso]><xml=
+> <w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word"> <w:Don=
+tUseAdvancedTypographyReadingMail/> </w:WordDocument> </xml> <![endif]--><!=
+--[if !mso]><!-- -->  <link href=3D"https://fonts.googleapis.com/css?family=
+=3DOpen+Sans:400,400i,700,700i" rel=3D"stylesheet" style=3D"box-sizing:bord=
+er-box" /><!--<![endif]-->  <style type=3D"text/css">.rollover:hover .rollo=
+ver-first { max-height:0px!important; display:none!important;}.rollover:hov=
+er .rollover-second { max-height:none!important; display:block!important;}.=
+rollover span { font-size:0px;}u + .body img ~ div div { display:none;}#out=
+look a { padding:0;}span.MsoHyperlink,span.MsoHyperlinkFollowed { color:inh=
+erit; mso-style-priority:99;}a.g { mso-style-priority:100!important; text-d=
+ecoration:none!important;}a[x-apple-data-detectors],#MessageViewBody a { co=
+lor:inherit!important; text-decoration:none!important; font-size:inherit!im=
+portant; font-family:inherit!important; font-weight:inherit!important; line=
+-height:inherit!important;}  .o { display:none; float:left; overflow:hidden=
+; width:0; max-height:0; line-height:0; mso-hide:all;}.es-module-8852 * { b=
+ox-sizing:border-box;}.cta_central { width:60%!important;}.esd-module-8081 =
+* { box-sizing:border-box;}@media only screen and (max-width:600px) {.bw { =
+padding-right:10px!important }.bv { padding-left:10px!important }.bu { padd=
+ing-right:0px!important }.bt { padding-bottom:20px!important }.bs { padding=
+:20px!important }.br { padding-right:20px!important }.bq { padding-bottom:1=
+0px!important }.bp { padding-left:20px!important }.bo { padding-bottom:0px!=
+important }.bn { padding-left:0px!important }.bm { padding-top:0px!importan=
+t }.bl { padding-bottom:5px!important }.bk { padding-top:10px!important }*[=
+class=3D"gmail-fix"] { display:none!important }p, a { line-height:120%!impo=
+rtant }h1, h1 a { line-height:120%!important }h2, h2 a { line-height:120%!i=
+mportant }h3, h3 a { line-height:120%!important }  h4, h4 a { line-height:1=
+20%!important }h5, h5 a { line-height:120%!important }h6, h6 a { line-heigh=
+t:120%!important }.bh p { }h1 { font-size:28px!important; text-align:left; =
+margin-bottom:17px!important }h2 { font-size:24px!important; text-align:lef=
+t; margin-bottom:15px!important }h3 { font-size:20px!important; text-align:=
+left; margin-bottom:12px!important }h4 { font-size:24px!important; text-ali=
+gn:left }h5 { font-size:20px!important; text-align:left }h6 { font-size:16p=
+x!important; text-align:left }.bh p, .bh a { font-size:16px!important }.m, =
+.m h1, .m h2, .m h3, .m h4, .m h5, .m h6 { text-align:center!important }.j =
+.rollover:hover .rollover-second, .m .rollover:hover .rollover-second, .l .=
+rollover:hover .rollover-second { display:inline!important }a.g, button.g {=
+ display:inline-block!important; font-size:18px!important; padding:10px 20p=
+x 10px 20px!important; line-height:120%!important }.h { display:inline-bloc=
+k!important }  .w table, .x, .y { width:100%!important; border-collapse:sep=
+arate!important }.t table, .u table, .v table, .t, .v, .u { width:100%!impo=
+rtant; max-width:600px!important }.adapt-img { width:100%!important; height=
+:auto!important }.q, .r { display:none!important }.h-auto { height:auto!imp=
+ortant }a.g, button.g, .h { display:inline-block!important }.img-8747 { wid=
+th:253px!important; height:auto!important }.img-7742 { width:183px!importan=
+t; height:auto!important }.a .e, .a .e * { font-size:13px!important }.a .d,=
+ .a .d * { line-height:120%!important; font-size:16px!important }.a .c, .a =
+.c * { font-size:18px!important }.a .b, .a .b * { line-height:120%!importan=
+t; font-size:28px!important } }@media only screen and (max-width:480px) {.p=
+-size50 { font-size:50px!important; line-height:54px!important } .p-size14 =
+{ font-size:14px!important; line-height:18px!important } .w100 { width:100%=
+!important } .w85 { width:85%!important }  .w60 { width:60%!important } .w4=
+5 { width:45%!important } .icon-mundo { margin-top:15px!important } .m_2010=
+ { margin:20px auto 10px auto!important } .pad_2030 { padding:20px 30px!imp=
+ortant } .m20_auto { margin:20px auto!important } .center { text-align:cent=
+er!important } .inline { display:inline!important } .tyc-box { width:90%!im=
+portant } .tyc { width:89%!important; text-align:center!important; padding:=
+5px!important } .pnum { width:8%!important } .box1 { width:80%!important } =
+.p-title { font-size:22px!important; line-height:28px!important } .p-subt {=
+ font-size:16px!important; line-height:20px!important } .btn-box { width:10=
+0%!important } .p-sec { font-size:18px!important; line-height:22px!importan=
+t } .title-dcto { font-size:18px!important; line-height:22px!important } .p=
+-dcto { font-size:55px!important; margin:35px auto!important } .subt-dcto {=
+ font-size:15px!important; line-height:19px!important }  .box-title-code { =
+width:100%!important } .title-code { font-size:14px!important; line-height:=
+18px!important } .box-code { width:100%!important } .p-code { font-size:20p=
+x!important } .box-card { display:block!important; width:100%!important; ma=
+rgin:0 0 20px 0!important } .box-app { width:45%!important; margin-bottom:2=
+0px!important } .title-steps { font-size:22px!important; line-height:26px!i=
+mportant } .p-step { font-size:12px!important; line-height:18px!important }=
+ .box2 { padding:30px!important } .columnas { width:100%; padding:10px; tex=
+t-align:center } table#canspamBar td { font-size:14px!important } .codeign =
+{ width:100%; font-size:24px; padding:8px } .max100 { width:100% } .nmobile=
+ { display:none!important } .inner-info { width:100 } .mxwhdt { width:100% =
+} .lsfty { padding-left:30px } .mxwid { max-width:90% } .max_mobile { width=
+:100% } table#canspamBar td a { display:block!important; margin-top:10px!im=
+portant }  .tble { width:80%; font-size:12px; line-height:22px } .boton-cen=
+tro { width:80%!important; margin:auto } .smart { left:25px } .typo { font-=
+size:14px; line-height:18px } .sesenta-ochenta { width:95%; margin:0 auto; =
+text-align:center } .treinta-cien { width:100% } .curnueve { width:48% } .u=
+nivr { display:none } .ancho1 { width:100 } .ancho2 { width:100 } .title-gr=
+een { font-size:26px } .imge { width:50 } .txtblog { margin:30px 0; font-si=
+ze:16px; text-align:center; display:block } .titulo-inicio { font-size:20px=
+; line-height:24px } .txt-normal { font-size:16px; line-height:20px } .tirt=
+ifive { width:85%; margin:10px auto!important } .widhead { width:100%; text=
+-align:center } .benefit-box { width:100%; height:180px; border-radius:0px =
+} .img-tenp { display:none } .txt-beneficios { width:90% } .ohcien { width:=
+100 } .hed-mail { font-size:18px; line-height:22px } .twntifoue { font-size=
+:18px } .twntquin { font-size:14px; line-height:18px }  .ttle-blanco { font=
+-size:16px; line-height:20px } .full-wid-mob { width:90%; text-align:center=
+ } .text-al { text-align:center; width:90% } }@media only screen and (max-w=
+idth:640px) {.cta_central { width:80%!important } }@media screen and (max-w=
+idth:384px) {.mail-message-content { width:414px!important } }  </style> </=
+head> <body class=3D"body" style=3D"width:100%;height:100%;font-family:'ope=
+n sans', 'helvetica neue', helvetica, arial, sans-serif;-webkit-text-size-a=
+djust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0;box-sizing:border-b=
+ox;background-color:#141414">
+<div itemscope itemtype=3D"http://schema.org/Organization">
+<meta itemprop=3D"logo" content=3D"https://db7hsdc8829us.cloudfront.net/dis=
+t/1579878272/i/0e97eb3b1d084264bc3af29349e8deb6.jpeg?v=3D1722876074" />
+</div>
+
+<span class=3D"preheader" style=3D"color:blue; display:none !important;heig=
+ht:0; opacity:0; visibility:hidden; width:0">cada pago con tu Tarjeta de Cr=
+=E9dito te devuelve Tenpesos.</span> <div class=3D"es-wrapper-color" dir=3D=
+"ltr" lang=3D"es" style=3D"background-color:#020202;box-sizing:border-box">=
+<!--[if gte mso 9]><v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+fill=3D"t"> <v:fill type=3D"tile" color=3D"#020202"></v:fill> </v:backgroun=
+d><![endif]--> <table cellpadding=3D"0" cellspacing=3D"0" class=3D"es-wrapp=
+er" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border=
+-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:=
+100%;background-repeat:repeat;background-position:center top;box-sizing:bor=
+der-box" width=3D"100%">  <tbody style=3D"box-sizing:border-box">   <tr sty=
+le=3D"box-sizing:border-box">    <td style=3D"padding:0;Margin:0;box-sizing=
+:border-box" valign=3D"top">    <table align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" class=3D"u" role=3D"none" style=3D"mso-table-lspace:0pt;ms=
+o-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;t=
+able-layout:fixed !important;background-color:transparent;background-repeat=
+:repeat;background-position:center top;box-sizing:border-box">     <tbody s=
+tyle=3D"box-sizing:border-box">      <tr style=3D"box-sizing:border-box">  =
+     <td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:border-box=
+">       <table align=3D"center" bgcolor=3D"#000000" cellpadding=3D"0" cell=
+spacing=3D"0" class=3D"bi" role=3D"none" style=3D"mso-table-lspace:0pt;mso-=
+table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-col=
+or:#000000;box-sizing:border-box;width:600px">        <tbody style=3D"box-s=
+izing:border-box">         <tr style=3D"box-sizing:border-box">          <t=
+d align=3D"left" class=3D"bw bv" style=3D"padding:0 20px;Margin:0;box-sizin=
+g:border-box">          <table cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:co=
+llapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">           =
+<tbody style=3D"box-sizing:border-box">            <tr style=3D"box-sizing:=
+border-box">             <td align=3D"center" class=3D"bu bt" style=3D"padd=
+ing:0;Margin:0;box-sizing:border-box;width:560px" valign=3D"top">          =
+   <table cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;box-sizing:border-box" width=3D"100%">              <tbody s=
+tyle=3D"box-sizing:border-box">               <tr style=3D"box-sizing:borde=
+r-box">                <td align=3D"center" class=3D"bs" style=3D"padding:4=
+0px 0;Margin:0;box-sizing:border-box;font-size:0px"><img alt=3D"Tenpo Una c=
+uenta muy t=FA" class=3D"adapt-img" height=3D"51" src=3D"https://tenpoimage=
+sstorage2.blob.core.windows.net/marketing/03_mail_2026/header/header-tenpo.=
+png" style=3D"display:block;font-size:12px;border:0;outline:none;text-decor=
+ation:none;margin:0;box-sizing:border-box" title=3D"Tenpo Una cuenta muy t=
+=FA" width=3D"420" /></td>               </tr>              </tbody>       =
+      </table>             </td>            </tr>           </tbody>       =
+   </table>          </td>         </tr>        </tbody>       </table>    =
+   </td>      </tr>     </tbody>    </table>     <table align=3D"center" ce=
+llpadding=3D"0" cellspacing=3D"0" class=3D"t" role=3D"none" style=3D"mso-ta=
+ble-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing=
+:0px;width:100%;table-layout:fixed !important;box-sizing:border-box">     <=
+tbody style=3D"box-sizing:border-box">      <tr style=3D"box-sizing:border-=
+box">       <td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:bor=
+der-box">       <table align=3D"center" bgcolor=3D"#ffffff" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"bh" role=3D"none" style=3D"mso-table-lspace:0=
+pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;backgro=
+und-color:#000000;box-sizing:border-box;width:600px">        <tbody style=
+=3D"box-sizing:border-box">         <tr style=3D"box-sizing:border-box">   =
+       <td align=3D"left" class=3D"br bp bq" style=3D"padding:10px 40px 0;M=
+argin:0;box-sizing:border-box">          <table cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;b=
+order-collapse:collapse;border-spacing:0px;box-sizing:border-box" width=3D"=
+100%">           <tbody style=3D"box-sizing:border-box">            <tr sty=
+le=3D"box-sizing:border-box">             <td align=3D"center" style=3D"pad=
+ding:0;Margin:0;box-sizing:border-box;width:520px" valign=3D"top">         =
+    <table cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;box-sizing:border-box" width=3D"100%">              <tbody s=
+tyle=3D"box-sizing:border-box">               <tr style=3D"box-sizing:borde=
+r-box">                <td align=3D"center" class=3D"bw bv a" style=3D"padd=
+ing:0 40px 0 45px;Margin:0;box-sizing:border-box">                <h4 class=
+=3D"d" style=3D"Margin:0;font-family:'open sans', 'helvetica neue', helveti=
+ca, arial, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-si=
+ze:18px;font-style:normal;font-weight:normal;line-height:21.6px;color:#ffff=
+ff;box-sizing:border-box;text-align:center">Gana hasta</h4>                =
+</td>               </tr>               <tr style=3D"box-sizing:border-box"=
+>                <td align=3D"center" class=3D"br bp bo a" style=3D"Margin:=
+0;padding:10px 80px;box-sizing:border-box">                <p class=3D"m b"=
+ style=3D"Margin:0;mso-line-height-rule:exactly;font-family:'open sans', 'h=
+elvetica neue', helvetica, arial, sans-serif;line-height:50.4px;letter-spac=
+ing:0;color:#ffffff;font-size:42px;margin-bottom:9px;box-sizing:border-box"=
+>$10.000 Tenpesos</p>                </td>               </tr>             =
+  <tr style=3D"box-sizing:border-box">                <td align=3D"center" =
+class=3D"bp br a" style=3D"padding:0 40px 0 45px;Margin:0;box-sizing:border=
+-box">                <h4 class=3D"d" style=3D"Margin:0;font-family:'open s=
+ans', 'helvetica neue', helvetica, arial, sans-serif;mso-line-height-rule:e=
+xactly;letter-spacing:0;font-size:18px;font-style:normal;font-weight:normal=
+;line-height:21.6px;color:#ffffff;box-sizing:border-box;text-align:center">=
+comprando con tu Tarjeta de Cr&eacute;dito</h4>                </td>       =
+        </tr>              </tbody>             </table>             </td> =
+           </tr>           </tbody>          </table>          </td>       =
+  </tr>        </tbody>       </table>       </td>      </tr>     </tbody> =
+   </table>     <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"t" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0=
+pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixe=
+d !important;box-sizing:border-box">     <tbody style=3D"box-sizing:border-=
+box">      <tr style=3D"box-sizing:border-box">       <td align=3D"center" =
+style=3D"padding:0;Margin:0;box-sizing:border-box">       <table align=3D"c=
+enter" bgcolor=3D"#000000" cellpadding=3D"0" cellspacing=3D"0" class=3D"bh"=
+ role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-co=
+llapse:collapse;border-spacing:0px;background-color:#000000;box-sizing:bord=
+er-box;width:600px">        <tbody style=3D"box-sizing:border-box">        =
+ <tr style=3D"box-sizing:border-box">          <td align=3D"left" style=3D"=
+Margin:0;padding:10px 30px;box-sizing:border-box">          <table cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"none" style=3D"mso-table-lspace:0pt;mso=
+-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:bo=
+rder-box" width=3D"100%">           <tbody style=3D"box-sizing:border-box">=
+            <tr style=3D"box-sizing:border-box">             <td align=3D"c=
+enter" style=3D"padding:0;Margin:0;box-sizing:border-box;width:540px" valig=
+n=3D"top">             <table cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-coll=
+apse:collapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">    =
+          <tbody style=3D"box-sizing:border-box">               <tr style=
+=3D"box-sizing:border-box">                <td align=3D"center" class=3D"m =
+bu bn" style=3D"Margin:0;padding:10px 10px 20px;box-sizing:border-box"><!--=
+[if mso]><a href=3D"https://u97746323.ct.sendgrid.net/ls/click?upn=3Du001.J=
+vmPx1QfDiuO4PwvfRGQxVAEReTzoha6oixiJyW9xm2ymR7p5bAcr1oKqYXmxc4IL48zrLjBn2zK=
+A-2F62gtuXBNG2IK-2BBKpjXgTdQRHqMw6eWDJ0EL1d-2Fd09vnhOCciL0F9umJcPF1zDpLUmGN=
+5eukO1M2Uupm8EA15QhY0JsSHH4NhkzvD2KsSmZdnKapLbFzKrjZKmAhfT94im7NPLM6trXNLr3=
+BV-2BIuNpfwxuvN-2FF6xyXXZGhfX8zX5d-2BbwT-2F1ckf2onrzFsmehaxUe726e0C-2BEvXjv=
+s1e58JXfEQLzg4IWooL-2ByocAk-2BUHRBATMRBosf-2BOkGQG9F6uTFgSlwXmu2xAvfioJnv16=
+X9NazVRAJitjfRLcQA7Jw6BIkpjxPuzFrmo0QJzTnoGFXgDgmCGmsB4QleiNlNyA4EO3nP4PIcd=
+5qHoL3ADolRtOOQUXpHFq1SuZb-2B1ACBuPa1jP3BsFpkKHzsTsiAyxc4xAMcOtt1SH-2B32zj4=
+GRkO8TJSGyRlHTgk_errr4Xql86BypKX2-2FYBh1dO6FfL4gnwmtvU3cSuJzeuHxcL7JNvcKuzK=
+I9br3SpC-2BSi4bCrsL-2BIpwINEAktpCkcAnt7KIrdTdJKGRcp7RULYyvDPW2JvH5yoxNvwbDL=
+wbfoGcNBWXT1rzCy7mvCS4mIVK3-2F-2FZhEQevzhKyNmqEY-2B0M-2Fu8-2F0MfoDUZIEwuMmk=
+LZYJ1l8-2B1h9CM6A0mA0piw-3D-3D" target=3D"_blank" hidden> <v:roundrect xmln=
+s:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:=
+office:word" esdevVmlButton href=3D"https://tenpo.page.link/tenpesos-mision=
+es" style=3D"height:66px; v-text-anchor:middle; width:353px" arcsize=3D"12%=
+" stroke=3D"f" fillcolor=3D"#03ff94"> <w:anchorlock></w:anchorlock> <center=
+ style=3D'color:#000000; font-family:"open sans", "helvetica neue", helveti=
+ca, arial, sans-serif; font-size:22px; font-weight:700; line-height:22px; m=
+so-text-raise:1px'>Ir a misi=F3n</center> </v:roundrect></a> <![endif]--><!=
+--[if !mso]><!-- --><a class=3D"g msohide" href=3D"https://u97746323.ct.sen=
+dgrid.net/ls/click?upn=3Du001.JvmPx1QfDiuO4PwvfRGQxVAEReTzoha6oixiJyW9xm2ym=
+R7p5bAcr1oKqYXmxc4IL48zrLjBn2zKA-2F62gtuXBNG2IK-2BBKpjXgTdQRHqMw6eWDJ0EL1d-=
+2Fd09vnhOCciL0F9umJcPF1zDpLUmGN5eukO1M2Uupm8EA15QhY0JsSHH4NhkzvD2KsSmZdnKap=
+LbFzKrjZKmAhfT94im7NPLM6trXNLr3BV-2BIuNpfwxuvN-2FF6xyXXZGhfX8zX5d-2BbwT-2F1=
+ckf2onrzFsmehaxUe726e0C-2BEvXjvs1e58JXfEQLzg4IWooL-2ByocAk-2BUHRBATMRBosf-2=
+BOkGQG9F6uTFgSlwXmu2xAvfioJnv16X9NazVRAJitjfRLcQA7Jw6BIkpjxPuzFrmo0QJzTnoGF=
+XgDgmCGmsB4QleiNlNyA4EO3nP4PIcd5qHoL3ADolRtOOQUXpHFq1SuZb-2B1ACBuPa1jP3BsFp=
+kKHzsTsiAyxc4xAMcOtt1SH-2B32zj4GRkO8TJSGyRlJwP4_errr4Xql86BypKX2-2FYBh1dO6F=
+fL4gnwmtvU3cSuJzeuHxcL7JNvcKuzKI9br3SpCrGfdA9BWkRLhE1SOjxPECSSnaa3lDOi7-2Fl=
+GbMOrgtCVu2BzvWCANCAoQRXFSvgbgcP4-2FMDZ5vqZ12G-2B9W6J-2BPjYPFNGOPb6j0y4cF0c=
+Q5zuMItDPpij6B7s-2FFMNlW0qQFcPVXJUfYWkJZSzvw-2FNKFw-3D-3D" style=3D"color: =
+rgb(0, 0, 0); font-size: 22px; padding: 20px 5px; display: block; backgroun=
+d: rgb(3, 255, 148); border-radius: 8px; font-family: &quot;open sans&quot;=
+, &quot;helvetica neue&quot;, helvetica, arial, sans-serif; font-weight: bo=
+ld; font-style: normal; line-height: 26.4px; width: auto; text-align: cente=
+r; letter-spacing: 0px; box-sizing: border-box; text-decoration: none !impo=
+rtant;" target=3D"_blank">Ir a misi&oacute;n</a><!--<![endif]--></td>      =
+         </tr>              </tbody>             </table>             </td>=
+            </tr>           </tbody>          </table>          </td>      =
+   </tr>        </tbody>       </table>       </td>      </tr>     </tbody>=
+    </table>     <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0=
+" class=3D"t" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:=
+0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fix=
+ed !important;box-sizing:border-box">     <tbody style=3D"box-sizing:border=
+-box">      <tr style=3D"box-sizing:border-box">       <td align=3D"center"=
+ style=3D"padding:0;Margin:0;box-sizing:border-box">       <table align=3D"=
+center" bgcolor=3D"#ffffff" cellpadding=3D"0" cellspacing=3D"0" class=3D"bh=
+" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-c=
+ollapse:collapse;border-spacing:0px;background-color:#000000;box-sizing:bor=
+der-box;width:600px">        <tbody style=3D"box-sizing:border-box">       =
+  <tr style=3D"box-sizing:border-box">          <td align=3D"left" style=3D=
+"padding:20px;Margin:0;box-sizing:border-box">          <table cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"none" style=3D"mso-table-lspace:0pt;mso-ta=
+ble-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:borde=
+r-box" width=3D"100%">           <tbody style=3D"box-sizing:border-box">   =
+         <tr style=3D"box-sizing:border-box">             <td align=3D"cent=
+er" style=3D"padding:0;Margin:0;box-sizing:border-box;width:560px" valign=
+=3D"top">             <table cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-colla=
+pse:collapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">     =
+         <tbody style=3D"box-sizing:border-box">               <tr style=3D=
+"box-sizing:border-box">                <td align=3D"center" style=3D"paddi=
+ng:0;Margin:0;box-sizing:border-box;font-size:0px"><img alt=3D"" class=3D"a=
+dapt-img" height=3D"307" src=3D"https://tenpoimagesstorage2.blob.core.windo=
+ws.net/marketing/03_mail_2026/04_abril/img-matc/img-matc.png" style=3D"disp=
+lay:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:=
+0;box-sizing:border-box" title=3D"" width=3D"520" /></td>               </t=
+r>              </tbody>             </table>             </td>            =
+</tr>           </tbody>          </table>          </td>         </tr>    =
+    </tbody>       </table>       </td>      </tr>     </tbody>    </table>=
+     <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=3D"t=
+" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-c=
+ollapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !importan=
+t;box-sizing:border-box">     <tbody style=3D"box-sizing:border-box">      =
+<tr style=3D"box-sizing:border-box">       <td align=3D"center" bgcolor=3D"=
+transparent" style=3D"padding:0;Margin:0;box-sizing:border-box">       <tab=
+le align=3D"center" bgcolor=3D"#000000" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"bh" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:=
+0pt;border-collapse:collapse;border-spacing:0px;background-color:#000000;bo=
+x-sizing:border-box;width:600px">        <tbody style=3D"box-sizing:border-=
+box">         <tr style=3D"box-sizing:border-box">          <td align=3D"le=
+ft" class=3D"bp br" style=3D"padding:0 40px;Margin:0;box-sizing:border-box"=
+>          <table cellpadding=3D"0" cellspacing=3D"0" role=3D"none" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;box-sizing:border-box" width=3D"100%">           <tbody styl=
+e=3D"box-sizing:border-box">            <tr style=3D"box-sizing:border-box"=
+>             <td align=3D"left" style=3D"padding:0;Margin:0;box-sizing:bor=
+der-box;width:520px">             <table cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;=
+border-collapse:collapse;border-spacing:0px;box-sizing:border-box" width=3D=
+"100%">              <tbody style=3D"box-sizing:border-box">               =
+<tr style=3D"box-sizing:border-box">                <td align=3D"center" cl=
+ass=3D"bm bp br bl a" style=3D"Margin:0;padding:10px 40px;box-sizing:border=
+-box">                <p class=3D"d" style=3D"Margin:0;mso-line-height-rule=
+:exactly;font-family:'open sans', 'helvetica neue', helvetica, arial, sans-=
+serif;line-height:21.6px;letter-spacing:0;color:#FFFFFF;font-size:18px;marg=
+in-bottom:9px;box-sizing:border-box">Este mes compra todo con tu Tarjeta de=
+ Cr&eacute;dito y gana Tenpesos.</p>                 <p class=3D"d" style=
+=3D"Margin:0;mso-line-height-rule:exactly;font-family:'open sans', 'helveti=
+ca neue', helvetica, arial, sans-serif;line-height:21.6px;letter-spacing:0;=
+color:#FFFFFF;font-size:18px;margin-bottom:9px;box-sizing:border-box"><br s=
+tyle=3D"box-sizing:border-box" />                 Tus etapas ya est&aacute;=
+n disponibles para comenzar a ganar, rev&iacute;salas ahora.</p>           =
+     </td>               </tr>              </tbody>             </table>  =
+           </td>            </tr>           </tbody>          </table>     =
+     </td>         </tr>        </tbody>       </table>       </td>      </=
+tr>     </tbody>    </table>     <table align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"t" role=3D"none" style=3D"mso-table-lspace:0pt;m=
+so-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;=
+table-layout:fixed !important;box-sizing:border-box">     <tbody style=3D"b=
+ox-sizing:border-box">      <tr style=3D"box-sizing:border-box">       <td =
+align=3D"center" style=3D"padding:0;Margin:0;box-sizing:border-box">       =
+<table align=3D"center" bgcolor=3D"#000000" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"bh" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-r=
+space:0pt;border-collapse:collapse;border-spacing:0px;background-color:#000=
+000;box-sizing:border-box;width:600px">        <tbody style=3D"box-sizing:b=
+order-box">         <tr style=3D"box-sizing:border-box">          <td align=
+=3D"left" style=3D"Margin:0;padding:10px 30px 30px;box-sizing:border-box"> =
+         <table cellpadding=3D"0" cellspacing=3D"0" role=3D"none" style=3D"=
+mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-s=
+pacing:0px;box-sizing:border-box" width=3D"100%">           <tbody style=3D=
+"box-sizing:border-box">            <tr style=3D"box-sizing:border-box">   =
+          <td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:borde=
+r-box;width:540px" valign=3D"top">             <table cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-tabl=
+e-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:border-=
+box" width=3D"100%">              <tbody style=3D"box-sizing:border-box">  =
+             <tr style=3D"box-sizing:border-box">                <td align=
+=3D"center" class=3D"m bu bn" style=3D"Margin:0;padding:10px 10px 20px;box-=
+sizing:border-box"><!--[if mso]><a href=3D"https://u97746323.ct.sendgrid.ne=
+t/ls/click?upn=3Du001.JvmPx1QfDiuO4PwvfRGQxVAEReTzoha6oixiJyW9xm2ymR7p5bAcr=
+1oKqYXmxc4IL48zrLjBn2zKA-2F62gtuXBNG2IK-2BBKpjXgTdQRHqMw6eWDJ0EL1d-2Fd09vnh=
+OCciL0F9umJcPF1zDpLUmGN5eukO1M2Uupm8EA15QhY0JsSHH4NhkzvD2KsSmZdnKapLbFzKrjZ=
+KmAhfT94im7NPLM6trXNLr3BV-2BIuNpfwxuvN-2FF6xyXXZGhfX8zX5d-2BbwT-2F1ckf2onrz=
+FsmehaxUe726e0C-2BEvXjvs1e58JXfEQLzg4IWooL-2ByocAk-2BUHRBATMRBosf-2BOkGQG9F=
+6uTFgSlwXmu2xAvfioJnv16X9NazVRAJitjfRLcQA7Jw6BIkpjxPuzFrmo0QJzTnoGFXgDgmCGm=
+sB4QleiNlNyA4EO3nP4PIcd5qHoL3ADolRtOOQUXpHFq1SuZb-2B1ACBuPa1jP3BsFpkKHzsTsi=
+Ayxc4xAMcOtt1SH-2B32zj4GRkO8TJSGyRl5MXA_errr4Xql86BypKX2-2FYBh1dO6FfL4gnwmt=
+vU3cSuJzeuHxcL7JNvcKuzKI9br3SpCssltQx2WhhXIVEDZ9Q-2BAn-2F-2BVLxixqnwTj6V2QJ=
+lkBvNVwU7TG5HK8zZmNjntacb4eHWFySTR-2BpwFyrpzn-2BNBy8EeSMdTHBNgqyRr-2BH-2Bll=
+Lbmnkin-2BS3P9F-2FgbTg7AlijzaAaLha8XMeTrSpJrDtvEQ-3D-3D" target=3D"_blank" =
+hidden> <v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"u=
+rn:schemas-microsoft-com:office:word" esdevVmlButton href=3D"https://tenpo.=
+page.link/tenpesos-misiones" style=3D"height:66px; v-text-anchor:middle; wi=
+dth:353px" arcsize=3D"12%" stroke=3D"f" fillcolor=3D"#03ff94"> <w:anchorloc=
+k></w:anchorlock> <center style=3D'color:#000000; font-family:"open sans", =
+"helvetica neue", helvetica, arial, sans-serif; font-size:22px; font-weight=
+:700; line-height:22px; mso-text-raise:1px'>Ir a misi=F3n</center> </v:roun=
+drect></a> <![endif]--><!--[if !mso]><!-- --><span class=3D"cta_central h m=
+sohide" style=3D"width:auto;border-style:solid;border-color:#6afe99;backgro=
+und:#03ff94;border-width:0px;display:block;border-radius:8px;mso-hide:all;b=
+ox-sizing:border-box"><a class=3D"g msohide" href=3D"https://u97746323.ct.s=
+endgrid.net/ls/click?upn=3Du001.JvmPx1QfDiuO4PwvfRGQxVAEReTzoha6oixiJyW9xm2=
+ymR7p5bAcr1oKqYXmxc4IL48zrLjBn2zKA-2F62gtuXBNG2IK-2BBKpjXgTdQRHqMw6eWDJ0EL1=
+d-2Fd09vnhOCciL0F9umJcPF1zDpLUmGN5eukO1M2Uupm8EA15QhY0JsSHH4NhkzvD2KsSmZdnK=
+apLbFzKrjZKmAhfT94im7NPLM6trXNLr3BV-2BIuNpfwxuvN-2FF6xyXXZGhfX8zX5d-2BbwT-2=
+F1ckf2onrzFsmehaxUe726e0C-2BEvXjvs1e58JXfEQLzg4IWooL-2ByocAk-2BUHRBATMRBosf=
+-2BOkGQG9F6uTFgSlwXmu2xAvfioJnv16X9NazVRAJitjfRLcQA7Jw6BIkpjxPuzFrmo0QJzTno=
+GFXgDgmCGmsB4QleiNlNyA4EO3nP4PIcd5qHoL3ADolRtOOQUXpHFq1SuZb-2B1ACBuPa1jP3Bs=
+FpkKHzsTsiAyxc4xAMcOtt1SH-2B32zj4GRkO8TJSGyRlFkLL_errr4Xql86BypKX2-2FYBh1dO=
+6FfL4gnwmtvU3cSuJzeuHxcL7JNvcKuzKI9br3SpCTCU2j7nxswFr8i0jzV3y6vfu6VAvUtjL7O=
+wOGGnyMconlyyK-2BGm9RdhrBV3zdeKGNGqqEU67nthqOlMgiHuj6Gl2RB2bqX7D6YB9NG-2FXa=
+4UUOhAgn7Kynt-2FP9tLMx5miE9VACEb-2FCy59NVK9JRnvKA-3D-3D" style=3D"mso-style=
+-priority:100 !important;text-decoration:none !important;mso-line-height-ru=
+le:exactly;color:#000000;font-size:22px;padding:20px 5px;display:block;back=
+ground:#03ff94;border-radius:8px;font-family:'open sans', 'helvetica neue',=
+ helvetica, arial, sans-serif;font-weight:bold;font-style:normal;line-heigh=
+t:26.4px;width:auto;text-align:center;letter-spacing:0;mso-padding-alt:0;ms=
+o-border-alt:10px solid #03ff94;mso-hide:all;box-sizing:border-box" target=
+=3D"_blank">Ir a misi&oacute;n</a> </span><!--<![endif]--></td>            =
+   </tr>              </tbody>             </table>             </td>      =
+      </tr>           </tbody>          </table>          </td>         </t=
+r>        </tbody>       </table>       </td>      </tr>     </tbody>    </=
+table>     <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"t" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bo=
+rder-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !im=
+portant;box-sizing:border-box">     <tbody style=3D"box-sizing:border-box">=
+      <tr style=3D"box-sizing:border-box">       <td align=3D"center" style=
+=3D"padding:0;Margin:0;box-sizing:border-box">       <table align=3D"center=
+" bgcolor=3D"#ffffff" cellpadding=3D"0" cellspacing=3D"0" class=3D"bh" role=
+=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collaps=
+e:collapse;border-spacing:0px;background-color:#000000;box-sizing:border-bo=
+x;width:600px">        <tbody style=3D"box-sizing:border-box">         <tr =
+style=3D"box-sizing:border-box">          <td align=3D"left" style=3D"paddi=
+ng:10px 20px 0;Margin:0;box-sizing:border-box">          <table cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"none" style=3D"mso-table-lspace:0pt;mso-ta=
+ble-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:borde=
+r-box" width=3D"100%">           <tbody style=3D"box-sizing:border-box">   =
+         <tr style=3D"box-sizing:border-box">             <td align=3D"cent=
+er" style=3D"padding:0;Margin:0;box-sizing:border-box;width:560px" valign=
+=3D"top">             <table cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-colla=
+pse:collapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">     =
+         <tbody style=3D"box-sizing:border-box">               <tr style=3D=
+"box-sizing:border-box">                <td align=3D"left" class=3D"br bp a=
+" style=3D"padding:10px 0 0;Margin:0;box-sizing:border-box">               =
+ <h2 class=3D"c" style=3D"Margin:0;font-family:'open sans', 'helvetica neue=
+', helvetica, arial, sans-serif;mso-line-height-rule:exactly;letter-spacing=
+:0;font-size:22px;font-style:normal;font-weight:normal;line-height:26.4px;c=
+olor:#FFFFFF;margin-bottom:15px;box-sizing:border-box;text-align:center"><s=
+trong style=3D"font-weight:700 !important;box-sizing:border-box">Recomendad=
+os para ti</strong></h2>                </td>               </tr>          =
+    </tbody>             </table>             </td>            </tr>       =
+    </tbody>          </table>          </td>         </tr>         <tr sty=
+le=3D"box-sizing:border-box">          <td align=3D"left" class=3D"br bp" s=
+tyle=3D"Margin:0;padding:10px 40px 20px;box-sizing:border-box">          <t=
+able cellpadding=3D"0" cellspacing=3D"0" role=3D"none" style=3D"mso-table-l=
+space:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;=
+box-sizing:border-box" width=3D"100%">           <tbody style=3D"box-sizing=
+:border-box">            <tr style=3D"box-sizing:border-box">             <=
+td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:border-box;width=
+:520px" valign=3D"top">             <table cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0p=
+t;border-collapse:collapse;border-spacing:0px;box-sizing:border-box" width=
+=3D"100%">              <tbody style=3D"box-sizing:border-box">            =
+   <tr style=3D"box-sizing:border-box">                <td align=3D"center"=
+ style=3D"padding:0;Margin:0;box-sizing:border-box;font-size:0px"><img alt=
+=3D"" class=3D"adapt-img" height=3D"274" src=3D"https://tenpoimagesstorage2=
+.blob.core.windows.net/marketing/03_mail_2025/10_octubre/primera_proxima_co=
+mpra/img-recomendador-teenpo.png" style=3D"display:block;font-size:14px;bor=
+der:0;outline:none;text-decoration:none;margin:0;box-sizing:border-box" wid=
+th=3D"520" /></td>               </tr>              </tbody>             </=
+table>             </td>            </tr>           </tbody>          </tab=
+le>          </td>         </tr>        </tbody>       </table>       </td>=
+      </tr>     </tbody>    </table>     <table align=3D"center" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"t" role=3D"none" style=3D"mso-table-lspa=
+ce:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;wid=
+th:100%;table-layout:fixed !important;box-sizing:border-box">     <tbody st=
+yle=3D"box-sizing:border-box">      <tr style=3D"box-sizing:border-box">   =
+    <td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:border-box"=
+>       <table align=3D"center" bgcolor=3D"#ffffff" cellpadding=3D"0" cells=
+pacing=3D"0" class=3D"bh" role=3D"none" style=3D"mso-table-lspace:0pt;mso-t=
+able-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-colo=
+r:#000000;box-sizing:border-box;width:600px">        <tbody style=3D"box-si=
+zing:border-box">         <tr style=3D"box-sizing:border-box">          <td=
+ align=3D"left" class=3D"br bp" style=3D"padding:20px 40px 0;Margin:0;box-s=
+izing:border-box">          <table cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collaps=
+e:collapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">       =
+    <tbody style=3D"box-sizing:border-box">            <tr style=3D"box-siz=
+ing:border-box">             <td align=3D"center" style=3D"padding:0;Margin=
+:0;box-sizing:border-box;width:520px" valign=3D"top">             <table ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px=
+;box-sizing:border-box" width=3D"100%">              <tbody style=3D"box-si=
+zing:border-box">               <tr style=3D"box-sizing:border-box">       =
+         <td align=3D"center" class=3D"bw bv a" style=3D"padding:0 40px;Mar=
+gin:0;box-sizing:border-box">                <p class=3D"e" style=3D"Margin=
+:0;mso-line-height-rule:exactly;font-family:'open sans', 'helvetica neue', =
+helvetica, arial, sans-serif;line-height:15.6px;letter-spacing:0;color:#FFF=
+FFF;font-size:13px;margin-bottom:9px;box-sizing:border-box">Promoci&oacute;=
+n v&aacute;lida desde el 01 al 30 de abril 2026.</p>                </td>  =
+             </tr>              </tbody>             </table>             <=
+/td>            </tr>           </tbody>          </table>          </td>  =
+       </tr>        </tbody>       </table>       </td>      </tr>     </tb=
+ody>    </table>     <table align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"t" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rs=
+pace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layou=
+t:fixed !important;box-sizing:border-box">     <tbody style=3D"box-sizing:b=
+order-box">      <tr style=3D"box-sizing:border-box">       <td align=3D"ce=
+nter" style=3D"padding:0;Margin:0;box-sizing:border-box">       <table alig=
+n=3D"center" bgcolor=3D"#000000" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"bh" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bo=
+rder-collapse:collapse;border-spacing:0px;background-color:#000000;box-sizi=
+ng:border-box;width:600px">        <tbody style=3D"box-sizing:border-box"> =
+        <tr style=3D"box-sizing:border-box">          <td align=3D"left" cl=
+ass=3D"bw bv" style=3D"Margin:0;padding:10px 20px 40px;box-sizing:border-bo=
+x">          <table cellpadding=3D"0" cellspacing=3D"0" role=3D"none" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;box-sizing:border-box" width=3D"100%">           <tbody styl=
+e=3D"box-sizing:border-box">            <tr style=3D"box-sizing:border-box"=
+>             <td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:b=
+order-box;width:560px" valign=3D"top">             <table cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-=
+table-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:bor=
+der-box" width=3D"100%">              <tbody style=3D"box-sizing:border-box=
+">               <tr style=3D"box-sizing:border-box">                <td st=
+yle=3D"padding:0;Margin:0;box-sizing:border-box"><!-- INICIO TERMINOS -->  =
+              <div class=3D"tyc-box" style=3D"box-sizing:border-box;border-=
+radius:30px;width:80%;margin:30px auto;padding:10px;text-align:center;displ=
+ay:block;background-color:#2A2A2A">                <div style=3D"box-sizing=
+:border-box;display:inline-block;vertical-align:middle"><img alt=3D"icono c=
+heck verde" src=3D"https://tenpoimagesstorage2.blob.core.windows.net/market=
+ing/01_mail_2022/11_nov/black-tenpo/icon.png" style=3D"display:block;font-s=
+ize:14px;border:0;outline:none;text-decoration:none;margin:0;box-sizing:bor=
+der-box;width:60%" /></div>                 <div class=3D"tyc" style=3D"box=
+-sizing:border-box;display:inline-block;text-align:left">                <p=
+ id=3D"pSize10" style=3D"Margin:0;mso-line-height-rule:exactly;font-family:=
+'open sans', 'helvetica neue', helvetica, arial, sans-serif;line-height:14p=
+x;letter-spacing:0;color:#ffffff;font-size:12px;margin-bottom:9px;box-sizin=
+g:border-box;margin:0 auto">Encuentra aqu&iacute; tus <a href=3D"https://u9=
+7746323.ct.sendgrid.net/ls/click?upn=3Du001.JvmPx1QfDiuO4PwvfRGQxVAEReTzoha=
+6oixiJyW9xm2ymR7p5bAcr1oKqYXmxc4IL48zrLjBn2zKA-2F62gtuXBNG2IK-2BBKpjXgTdQRH=
+qMw6eWDJ0EL1d-2Fd09vnhOCciL0F9umJcPF1zDpLUmGN5eukO1M2Uupm8EA15QhY0JsSHH4Nhk=
+zvD2KsSmZdnKapLbFzKrjZKmAhfT94im7NPLM6trXNLr3BV-2BIuNpfwxuvN-2FF6xyXXZGhfX8=
+zX5d-2BbwT-2F1ckf2onrzFsmehaxUe726e0C-2BEvXjvs1e58JXfEQLzg4IWooL-2ByocAk-2B=
+UHRBATMRBosf-2BOkGQG9F6uTFgSlwXmjwVzl-2B8JY1whPcmOS-2FyYpfbO7F6ZXxSRx7yfP6c=
+H7DJBHjFK9FIci4D-2B9zzBofpRfnUWvMsdMBUOVIJgz3dGmTEtWNmNQZ2wg4jy2tUnAd0VYvHK=
+unFwgypWA3F8yKxkPAtB9QEeA8DCRoIYU-2Fs2tU-3DA2ez_errr4Xql86BypKX2-2FYBh1dO6F=
+fL4gnwmtvU3cSuJzeuHxcL7JNvcKuzKI9br3SpCoz6wipzPeoTmXgbEneUBaAHhgJohFbFGpKIP=
+4HBU3v5qKO-2B6E1jxz5Fgxm3hiXvX57H50hla6WZido6evkPdPuv9YAqn-2FmIE7KdncRkUdYx=
+XQoJ3PR65tnAx6M-2BIqlnCWQccGqtT2WgQbY4-2BQiNaDw-3D-3D" id=3D"pSize10" style=
+=3D"mso-line-height-rule:exactly;text-decoration:none;color:#6afe99;font-si=
+ze:12px;box-sizing:border-box;line-height:16px">T&eacute;rminos y Condicion=
+es</a> de Tenpo</p>                </div>                </div>            =
+    <!-- FIN TERMINOS --></td>               </tr>              </tbody>   =
+          </table>             </td>            </tr>           </tbody>   =
+       </table>          </td>         </tr>         <tr style=3D"box-sizin=
+g:border-box">          <td align=3D"left" bgcolor=3D"#121212" style=3D"Mar=
+gin:0;padding:20px 30px 10px 25px;box-sizing:border-box;background-color:#1=
+21212"><!--[if mso]><table style=3D"width:545px" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr> <td style=3D"width:84px" valign=3D"top"><![endif]-->        =
+  <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" class=3D"x" rol=
+e=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collap=
+se:collapse;border-spacing:0px;float:left;box-sizing:border-box">          =
+ <tbody style=3D"box-sizing:border-box">            <tr style=3D"box-sizing=
+:border-box">             <td align=3D"center" class=3D"bu bt" style=3D"pad=
+ding:0;Margin:0;box-sizing:border-box;width:64px">             <table cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;bo=
+x-sizing:border-box;border-width:1px;border-style:solid;border-color:transp=
+arent" width=3D"100%">              <tbody style=3D"box-sizing:border-box">=
+               <tr style=3D"box-sizing:border-box">                <td alig=
+n=3D"center" style=3D"padding:0;Margin:0;box-sizing:border-box;font-size:0p=
+x"><img alt=3D"" height=3D"55" src=3D"https://tenpoimagesstorage2.blob.core=
+.windows.net/marketing/02_mail_2024/02_febrero/footer/footer-icono-saldo.pn=
+g" style=3D"display:block;font-size:14px;border:0;outline:none;text-decorat=
+ion:none;margin:0;box-sizing:border-box" width=3D"55" /></td>              =
+ </tr>              </tbody>             </table>             </td>        =
+     <td class=3D"r" style=3D"padding:0;Margin:0;box-sizing:border-box;widt=
+h:20px"> </td>            </tr>           </tbody>          </table>       =
+   <!--[if mso]></td><td style=3D"width:197px" valign=3D"top"><![endif]--> =
+          <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"x" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bor=
+der-collapse:collapse;border-spacing:0px;float:left;box-sizing:border-box">=
+           <tbody style=3D"box-sizing:border-box">            <tr style=3D"=
+box-sizing:border-box">             <td align=3D"center" class=3D"bt" style=
+=3D"padding:0;Margin:0;box-sizing:border-box;width:177px">             <tab=
+le cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-t=
+able-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacin=
+g:0px;box-sizing:border-box" width=3D"100%">              <tbody style=3D"b=
+ox-sizing:border-box">               <tr style=3D"box-sizing:border-box">  =
+              <td align=3D"left" style=3D"padding:0;Margin:0;box-sizing:bor=
+der-box">                <p class=3D"m" style=3D"Margin:0;mso-line-height-r=
+ule:exactly;font-family:'open sans', 'helvetica neue', helvetica, arial, sa=
+ns-serif;line-height:14.4px;letter-spacing:0;color:#ffffff;font-size:12px;m=
+argin-bottom:9px;box-sizing:border-box">=A1Recuerda mantener siempre cupo d=
+isponible en tu Tarjeta Tenpo Mastercard para usarla cuando quieras!</p>   =
+             </td>               </tr>              </tbody>             </=
+table>             </td>             <td class=3D"r" style=3D"padding:0;Mar=
+gin:0;box-sizing:border-box;width:20px"> </td>            </tr>           <=
+/tbody>          </table>          <!--[if mso]></td>  <td style=3D"width:6=
+7px" valign=3D"top"><![endif]-->           <table align=3D"left" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"x" role=3D"none" style=3D"mso-table-lspa=
+ce:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;flo=
+at:left;box-sizing:border-box">           <tbody style=3D"box-sizing:border=
+-box">            <tr style=3D"box-sizing:border-box">             <td alig=
+n=3D"center" class=3D"bu bt" style=3D"padding:0;Margin:0;box-sizing:border-=
+box;width:67px">             <table cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;borde=
+r-collapse:collapse;border-spacing:0px;box-sizing:border-box;border-width:1=
+px;border-style:solid;border-color:transparent" width=3D"100%">            =
+  <tbody style=3D"box-sizing:border-box">               <tr style=3D"box-si=
+zing:border-box">                <td align=3D"center" style=3D"padding:0;Ma=
+rgin:0;box-sizing:border-box;font-size:0px"><img alt=3D"" height=3D"55" src=
+=3D"https://tenpoimagesstorage2.blob.core.windows.net/marketing/02_mail_202=
+4/02_febrero/footer/footer-icono-sincostos.png" style=3D"display:block;font=
+-size:14px;border:0;outline:none;text-decoration:none;margin:0;box-sizing:b=
+order-box" width=3D"55" /></td>               </tr>              </tbody>  =
+           </table>             </td>            </tr>           </tbody>  =
+        </table>          <!--[if mso]></td><td style=3D"width:20px"></td><=
+td style=3D"width:177px" valign=3D"top"><![endif]-->           <table align=
+=3D"right" cellpadding=3D"0" cellspacing=3D"0" class=3D"y" role=3D"none" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px;float:right;box-sizing:border-box">           <tbody styl=
+e=3D"box-sizing:border-box">            <tr style=3D"box-sizing:border-box"=
+>             <td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:b=
+order-box;width:177px">             <table cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0p=
+t;border-collapse:collapse;border-spacing:0px;box-sizing:border-box" width=
+=3D"100%">              <tbody style=3D"box-sizing:border-box">            =
+   <tr style=3D"box-sizing:border-box">                <td align=3D"left" s=
+tyle=3D"padding:0;Margin:0;box-sizing:border-box">                <p class=
+=3D"m" style=3D"Margin:0;mso-line-height-rule:exactly;font-family:'open san=
+s', 'helvetica neue', helvetica, arial, sans-serif;line-height:14.4px;lette=
+r-spacing:0;color:#ffffff;font-size:12px;margin-bottom:9px;box-sizing:borde=
+r-box">Tu Tarjeta Tenpo Mastercard no tiene costos de mantenci&oacute;n ni =
+comisiones asociadas.</p>                </td>               </tr>         =
+     </tbody>             </table>             </td>            </tr>      =
+     </tbody>          </table>          <!--[if mso]></td></tr></table><![=
+endif]--></td>         </tr>         <tr style=3D"box-sizing:border-box">  =
+        <td align=3D"left" bgcolor=3D"#000" class=3D"esdev-adapt-off" style=
+=3D"padding:20px 30px 0 20px;Margin:0;box-sizing:border-box;background-colo=
+r:#000000">          <table cellpadding=3D"0" cellspacing=3D"0" class=3D"es=
+dev-mso-table" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace=
+:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:border-box;widt=
+h:550px">           <tbody style=3D"box-sizing:border-box">            <tr =
+style=3D"box-sizing:border-box">             <td class=3D"esdev-mso-td es-m=
+-w50" style=3D"padding:0;Margin:0;box-sizing:border-box" valign=3D"top">   =
+          <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"x" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bor=
+der-collapse:collapse;border-spacing:0px;float:left;box-sizing:border-box">=
+              <tbody style=3D"box-sizing:border-box">               <tr sty=
+le=3D"box-sizing:border-box">                <td align=3D"center" class=3D"=
+bu" style=3D"padding:0;Margin:0;box-sizing:border-box;width:75px" valign=3D=
+"top">                <table cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-colla=
+pse:collapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">     =
+            <tbody style=3D"box-sizing:border-box">                  <tr cl=
+ass=3D"q" style=3D"box-sizing:border-box">                   <td align=3D"c=
+enter" style=3D"padding:0;Margin:0;box-sizing:border-box;font-size:0px"><im=
+g alt=3D"" height=3D"75" src=3D"https://tenpoimagesstorage2.blob.core.windo=
+ws.net/marketing/02_mail_2024/02_febrero/footer/footer-icono-seguridad.png"=
+ style=3D"display:block;font-size:14px;border:0;outline:none;text-decoratio=
+n:none;margin:0;box-sizing:border-box" width=3D"75" /></td>                =
+  </tr>                 </tbody>                </table>                </t=
+d>               </tr>              </tbody>             </table>          =
+   </td>             <td class=3D"es-m-w0" style=3D"padding:0;Margin:0;box-=
+sizing:border-box;width:20px"> </td>             <td class=3D"esdev-mso-td =
+es-m-w50" style=3D"padding:0;Margin:0;box-sizing:border-box" valign=3D"top"=
+>             <table align=3D"right" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"y" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;=
+border-collapse:collapse;border-spacing:0px;float:right;box-sizing:border-b=
+ox">              <tbody style=3D"box-sizing:border-box">               <tr=
+ style=3D"box-sizing:border-box">                <td align=3D"center" style=
+=3D"padding:0;Margin:0;box-sizing:border-box;width:455px">                <=
+table cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"ms=
+o-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spa=
+cing:0px;box-sizing:border-box" width=3D"100%">                 <tbody styl=
+e=3D"box-sizing:border-box">                  <tr style=3D"box-sizing:borde=
+r-box">                   <td align=3D"left" style=3D"padding:0;Margin:0;bo=
+x-sizing:border-box">                   <p style=3D"Margin:0;mso-line-heigh=
+t-rule:exactly;font-family:'open sans', 'helvetica neue', helvetica, arial,=
+ sans-serif;line-height:16.8px;letter-spacing:0;color:#ffffff;font-size:14p=
+x;margin-bottom:9px;box-sizing:border-box"><strong style=3D"font-weight:700=
+ !important;box-sizing:border-box">Comprometidos con tu seguridad </strong>=
+</p>                   </td>                  </tr>                  <tr st=
+yle=3D"box-sizing:border-box">                   <td align=3D"left" style=
+=3D"padding:0;Margin:0;box-sizing:border-box">                   <ul style=
+=3D"font-family:'open sans', 'helvetica neue', helvetica, arial, sans-serif=
+;padding:0px 0px 0px 40px;margin-top:15px;margin-bottom:15px;box-sizing:bor=
+der-box">                    <li style=3D"color:#ffffff;margin:0px 0px 15px=
+;font-size:14px;box-sizing:border-box;line-height:14px">                   =
+ <p style=3D"mso-margin-top-alt:15px;Margin:0;mso-line-height-rule:exactly;=
+mso-margin-bottom-alt:15px;font-family:'open sans', 'helvetica neue', helve=
+tica, arial, sans-serif;line-height:12px;letter-spacing:0;color:#ffffff;fon=
+t-size:12px;margin-bottom:9px;box-sizing:border-box">Solo te enviaremos cor=
+reos electr&oacute;nicos con enlaces desde <span style=3D"box-sizing:border=
+-box;color:#6afe99;font-weight:bold">paratodos@tenpo .cl</span></p>        =
+            </li>                    <li style=3D"color:#ffffff;margin:0px =
+0px 15px;font-size:14px;box-sizing:border-box;line-height:14px">           =
+         <p style=3D"Margin:0;mso-line-height-rule:exactly;mso-margin-botto=
+m-alt:15px;font-family:'open sans', 'helvetica neue', helvetica, arial, san=
+s-serif;line-height:12px;letter-spacing:0;color:#ffffff;font-size:12px;marg=
+in-bottom:9px;box-sizing:border-box">Nunca te enviaremos correos electr&oac=
+ute;nicos, SMS o llamaremos solicitando tus datos, ni contrase&ntilde;as.</=
+p>                    </li>                    <li style=3D"color:#ffffff;m=
+argin:0px 0px 15px;font-size:14px;box-sizing:border-box;line-height:14px"> =
+                   <p style=3D"Margin:0;mso-line-height-rule:exactly;mso-ma=
+rgin-bottom-alt:15px;font-family:'open sans', 'helvetica neue', helvetica, =
+arial, sans-serif;line-height:12px;letter-spacing:0;color:#ffffff;font-size=
+:12px;margin-bottom:9px;box-sizing:border-box">Siempre verifica el remitent=
+e de los correos. Los comunicados entre Tenpo y sus clientes siempre ser&aa=
+cute;n desde <span style=3D"box-sizing:border-box;font-weight:bold;color:#6=
+afe99"> paratodos@tenpo .cl</span></p>                    </li>            =
+        <li style=3D"color:#ffffff;margin:0px 0px 15px;font-size:14px;box-s=
+izing:border-box;line-height:14px">                    <p style=3D"Margin:0=
+;mso-line-height-rule:exactly;mso-margin-bottom-alt:15px;font-family:'open =
+sans', 'helvetica neue', helvetica, arial, sans-serif;line-height:12px;lett=
+er-spacing:0;color:#ffffff;font-size:12px;margin-bottom:9px;box-sizing:bord=
+er-box;">Si no quieres recibir m&aacute;s correos de nosotros lo entendemos=
+, puedes darte de baja en el siguiente enlace <strong style=3D"font-weight:=
+700 !important;box-sizing:border-box"><a href=3D"https://u97746323.ct.sendg=
+rid.net/ls/click?upn=3Du001.JvmPx1QfDiuO4PwvfRGQxUBUWLfj9PWxf5WK1bMhH1I8oxF=
+6tIzMKp2b5bdM-2FP9nA84xS-2FcSZgFpjipnI0HltMQRlCVmG1huF6oHVhZK2mzybq-2FXXK3c=
+rk2gMHUOvIfXAyZbpv-2BpdhbmwFWZXxTZgjIR46-2BeJAVJlvJmBQ524E8XOM8l0LRyHGzgH5P=
+E3MXhb99dX4dANKl529pHWdyFglxGxw8CvfIypDAwRan-2Bu8Z3MDDfCHVl6S-2FAUIum1bFGCO=
+ZwOqz1aMYU9poWf-2FQGqFfgAx57LfjPlO-2Bnpm5DuB3v8jQ06TBWZ4McgTG1KKmc3lcrzcjHF=
+R1WEcIoq2YjlE4Sxs1oYjOjWpAVdcltLbri-2BgVG0Qll-2FUW8-2Bq2B7dzr0wgjoct2mj1TlN=
+Y11CP2Txv4xBIflxNpQjrN8D3Q5zdYpskeYS6XDKMOVL5Bqq-2Bk0pYF_errr4Xql86BypKX2-2=
+FYBh1dO6FfL4gnwmtvU3cSuJzeuHxcL7JNvcKuzKI9br3SpCJKFaOi5zfZoEyQcSLZ46Izmk-2B=
+fYRoxlSlhXPrhsOH-2BDNA-2B29dBZxqvA7pWRWKa5iDQfoxKQZg8PpLSomk3oxL-2F6xgef71c=
+YcFtE3xHVvfKVl3rDeDMa0QF6UIB-2BZaOWbBqsvNOBuyU-2FnAyhROuxwbA-3D-3D" style=
+=3D"mso-line-height-rule:exactly;text-decoration:none;color:#6afe99;font-si=
+ze:12px;box-sizing:border-box;font-family:'open sans', 'helvetica neue', he=
+lvetica, arial, sans-serif" target=3D"_blank">Desuscribirse</a><strong styl=
+e=3D"font-weight:700 !important;box-sizing:border-box"> </strong></strong><=
+/p>                    </li>                   </ul>                   </td=
+>                  </tr>                 </tbody>                </table>  =
+              </td>               </tr>              </tbody>             <=
+/table>             </td>            </tr>           </tbody>          </ta=
+ble>          </td>         </tr>         <tr style=3D"box-sizing:border-bo=
+x">          <td align=3D"left" bgcolor=3D"#151515" class=3D"esdev-adapt-of=
+f" style=3D"Margin:0;padding:15px 20px;box-sizing:border-box;background-col=
+or:#151515">          <table cellpadding=3D"0" cellspacing=3D"0" class=3D"e=
+sdev-mso-table" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspac=
+e:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:border-box;wid=
+th:560px">           <tbody style=3D"box-sizing:border-box">            <tr=
+ style=3D"box-sizing:border-box">             <td class=3D"esdev-mso-td es-=
+m-w25" style=3D"padding:0;Margin:0;box-sizing:border-box" valign=3D"top">  =
+           <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"x" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bor=
+der-collapse:collapse;border-spacing:0px;float:left;box-sizing:border-box">=
+              <tbody style=3D"box-sizing:border-box">               <tr sty=
+le=3D"box-sizing:border-box">                <td align=3D"center" class=3D"=
+bu" style=3D"padding:0;Margin:0;box-sizing:border-box;width:403px" valign=
+=3D"top">                <table cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-co=
+llapse:collapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">  =
+               <tbody style=3D"box-sizing:border-box">                  <tr=
+ style=3D"box-sizing:border-box">                   <td align=3D"left" styl=
+e=3D"padding:0;Margin:0;box-sizing:border-box;font-size:0px"><img alt=3D"" =
+height=3D"57" src=3D"https://tenpoimagesstorage2.blob.core.windows.net/mark=
+eting/02_mail_2024/02_febrero/footer/footer-icono-tenpo.png" style=3D"displ=
+ay:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0=
+;box-sizing:border-box" width=3D"65" /></td>                  </tr>        =
+         </tbody>                </table>                </td>             =
+  </tr>              </tbody>             </table>             </td>       =
+      <td class=3D"es-m-w0" style=3D"padding:0;Margin:0;box-sizing:border-b=
+ox;width:20px"> </td>             <td class=3D"esdev-mso-td es-m-w25" style=
+=3D"padding:0;Margin:0;box-sizing:border-box" valign=3D"top">             <=
+table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" class=3D"x" role=
+=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collaps=
+e:collapse;border-spacing:0px;float:left;box-sizing:border-box">           =
+   <tbody style=3D"box-sizing:border-box">               <tr style=3D"box-s=
+izing:border-box">                <td align=3D"left" style=3D"padding:0;Mar=
+gin:0;box-sizing:border-box;width:33px">                <table cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0p=
+t;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-sizi=
+ng:border-box" width=3D"100%">                 <tbody style=3D"box-sizing:b=
+order-box">                  <tr style=3D"box-sizing:border-box">          =
+         <td align=3D"center" class=3D"bk" style=3D"padding:5px 0 0;Margin:=
+0;box-sizing:border-box;font-size:0px"><a href=3D"https://u97746323.ct.send=
+grid.net/ls/click?upn=3Du001.JvmPx1QfDiuO4PwvfRGQxVAEReTzoha6oixiJyW9xm2ymR=
+7p5bAcr1oKqYXmxc4IL48zrLjBn2zKA-2F62gtuXBNG2IK-2BBKpjXgTdQRHqMw6eWDJ0EL1d-2=
+Fd09vnhOCciL0F9umJcPF1zDpLUmGN5eukO1M2Uupm8EA15QhY0JsSHH4NhkzvD2KsSmZdnKapL=
+bFzKrjZKmAhfT94im7NPLM6trXNLr3BV-2BIuNpfwxuvN-2FF6xyXXZGhfX8zX5d-2BbwT-2F1c=
+kf2onrzFsmehaxUe726e0C-2BEvXjvs1e58JXfEQLzg4IWooL-2ByocAk-2BUHRBATMRBosf-2B=
+OkGQG9F6uTFgSlwXmrOWrCDaPG2ns-2Fs28GOzk2BFmg5UAzmjeffBOiFcdBtAtm6r3Qe8pP-2B=
+3Bqn5HDEr7ROv5pqGt0peOlXSXgOIWlU9mqLc6bSq6ipZPVqPSeZ46SPqqvEfjnAlPJUyGjfvuw=
+Sp4Pdtnwe-2Bkx0Kbx-2BrHAIVwdIqyIu-2Bzy5EbskNoBIK6bIhnKn3atEIrgfkfeh9C3eZDFf=
+p4ZRmqIjygcAqGkI-3Do7EU_errr4Xql86BypKX2-2FYBh1dO6FfL4gnwmtvU3cSuJzeuHxcL7J=
+NvcKuzKI9br3SpCQBHo9XOwX4eY2dm1TPI6kV-2FXSROxXQ34zRKKIAkSzNUftCJp-2BYC4THHP=
+X2zhrzecyoPHoXCXT2TdRz06K3fyUN-2F7ZuZ8IbX3fEb4JvKXFgo-2FcjJp43czc0QNy3NUkPw=
+y94A2XOO7VZfGcAtVrgOVAA-3D-3D" style=3D"mso-line-height-rule:exactly;text-d=
+ecoration:none;color:#6AFE99;font-size:14px;box-sizing:border-box" target=
+=3D"_blank"><img alt=3D"" height=3D"32" src=3D"https://tenpoimagesstorage2.=
+blob.core.windows.net/marketing/02_mail_2024/02_febrero/footer/footer-icono=
+-youtube.png" style=3D"display:block;font-size:14px;border:0;outline:none;t=
+ext-decoration:none;margin:0;box-sizing:border-box" width=3D"32" /></a></td=
+>                  </tr>                 </tbody>                </table>  =
+              </td>               </tr>              </tbody>             <=
+/table>             </td>             <td class=3D"es-m-w0" style=3D"paddin=
+g:0;Margin:0;box-sizing:border-box;width:20px"> </td>             <td class=
+=3D"esdev-mso-td es-m-w25" style=3D"padding:0;Margin:0;box-sizing:border-bo=
+x" valign=3D"top">             <table align=3D"left" cellpadding=3D"0" cell=
+spacing=3D"0" class=3D"x" role=3D"none" style=3D"mso-table-lspace:0pt;mso-t=
+able-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left;box-=
+sizing:border-box">              <tbody style=3D"box-sizing:border-box">   =
+            <tr style=3D"box-sizing:border-box">                <td align=
+=3D"left" style=3D"padding:0;Margin:0;box-sizing:border-box;width:32px">   =
+             <table cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:colla=
+pse;border-spacing:0px;box-sizing:border-box" width=3D"100%">              =
+   <tbody style=3D"box-sizing:border-box">                  <tr style=3D"bo=
+x-sizing:border-box">                   <td align=3D"center" class=3D"bk" s=
+tyle=3D"padding:5px 0 0;Margin:0;box-sizing:border-box;font-size:0px"><a hr=
+ef=3D"https://u97746323.ct.sendgrid.net/ls/click?upn=3Du001.JvmPx1QfDiuO4Pw=
+vfRGQxVAEReTzoha6oixiJyW9xm2ymR7p5bAcr1oKqYXmxc4IL48zrLjBn2zKA-2F62gtuXBNG2=
+IK-2BBKpjXgTdQRHqMw6eWDJ0EL1d-2Fd09vnhOCciL0F9umJcPF1zDpLUmGN5eukO1M2Uupm8E=
+A15QhY0JsSHH4NhkzvD2KsSmZdnKapLbFzKrjZKmAhfT94im7NPLM6trXNLr3BV-2BIuNpfwxuv=
+N-2FF6xyXXZGhfX8zX5d-2BbwT-2F1ckf2onrzFsmehaxUe726e0C-2BEvXjvs1e58JXfEQLzg4=
+IWooL-2ByocAk-2BUHRBATMRBosf-2BOkGQG9F6uTFgSlwXmlsUVBcbAWIGq-2F7Cf0uS-2FqZJ=
+7cFSGg65pH8q0NXh01akLXCr-2BJONx8aCx03Dz3rCXMaVqPfjqzjU7uoEGs7-2FuNUTgkQ-2F6=
+r75C487Mhd0c0fGoSYw0zBXpe6nqggcmw8BmuBg-2FXVyv9czdAr-2BlYhGtLw-3DsAGW_errr4=
+Xql86BypKX2-2FYBh1dO6FfL4gnwmtvU3cSuJzeuHxcL7JNvcKuzKI9br3SpC0V7iaBkEfoW-2B=
+Fb1ka2BKv6v3ggWjtcyTiBTPDtI30EYp4jrfdrhPJUF89MG4uvv2OPyEqqqxAYvcJWUEaR0IVG1=
+Rf6fpX9QIAyPrxp-2BFvLcESlBQ57TIr9enG4X3zE-2B-2BEMpxgw-2F5zLPH7cI8m00wfw-3D-=
+3D" style=3D"mso-line-height-rule:exactly;text-decoration:none;color:#6AFE9=
+9;font-size:14px;box-sizing:border-box" target=3D"_blank"><img alt=3D"" hei=
+ght=3D"32" src=3D"https://tenpoimagesstorage2.blob.core.windows.net/marketi=
+ng/02_mail_2024/02_febrero/footer/footer-icono-facebook.png" style=3D"displ=
+ay:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0=
+;box-sizing:border-box" width=3D"32" /></a></td>                  </tr>    =
+             </tbody>                </table>                </td>         =
+      </tr>              </tbody>             </table>             </td>   =
+          <td class=3D"es-m-w0" style=3D"padding:0;Margin:0;box-sizing:bord=
+er-box;width:20px"> </td>             <td class=3D"esdev-mso-td es-m-w25" s=
+tyle=3D"padding:0;Margin:0;box-sizing:border-box" valign=3D"top">          =
+   <table align=3D"right" cellpadding=3D"0" cellspacing=3D"0" class=3D"y" r=
+ole=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-coll=
+apse:collapse;border-spacing:0px;float:right;box-sizing:border-box">       =
+       <tbody style=3D"box-sizing:border-box">               <tr style=3D"b=
+ox-sizing:border-box">                <td align=3D"left" style=3D"padding:0=
+;Margin:0;box-sizing:border-box;width:32px">                <table cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-s=
+izing:border-box" width=3D"100%">                 <tbody style=3D"box-sizin=
+g:border-box">                  <tr style=3D"box-sizing:border-box">       =
+            <td align=3D"center" class=3D"bk" style=3D"padding:5px 0 0;Marg=
+in:0;box-sizing:border-box;font-size:0px"><a href=3D"https://u97746323.ct.s=
+endgrid.net/ls/click?upn=3Du001.JvmPx1QfDiuO4PwvfRGQxVAEReTzoha6oixiJyW9xm2=
+ymR7p5bAcr1oKqYXmxc4IL48zrLjBn2zKA-2F62gtuXBNG2IK-2BBKpjXgTdQRHqMw6eWDJ0EL1=
+d-2Fd09vnhOCciL0F9umJcPF1zDpLUmGN5eukO1M2Uupm8EA15QhY0JsSHH4NhkzvD2KsSmZdnK=
+apLbFzKrjZKmAhfT94im7NPLM6trXNLr3BV-2BIuNpfwxuvN-2FF6xyXXZGhfX8zX5d-2BbwT-2=
+F1ckf2onrzFsmehaxUe726e0C-2BEvXjvs1e58JXfEQLzg4IWooL-2ByocAk-2BUHRBATMRBosf=
+-2BOkGQG9F6uTFgSlwXmuoA1nl7Thv2ZDul5-2F1BLNQo8iS9uJSv-2F8LHd3BqGouAiL4UX1c3=
+CbF-2BPDqMcTN5KsmhMPfklplXGK8WwCpwluV0IPGvlTy0QdgzWTTtVVskjLaLLgz6ap0KYm4kv=
+5a2mOks9LRIvyC-2BGrITM8LGDQ0-3D98vm_errr4Xql86BypKX2-2FYBh1dO6FfL4gnwmtvU3c=
+SuJzeuHxcL7JNvcKuzKI9br3SpCcYD7WPDqX6e19XXeu1zI1Tt2CBJ-2BhwceYcyup1C0OsftMV=
+SpciKYw-2FtnTRp3lU1MnmYePZeAT4aQ0s7junyeRSQc1SqSJDhCs2zapynNShwwAA5bxrTs4ek=
+ZdiRHTLI3CiOhay-2BcTw9iipzrWXL0yw-3D-3D" style=3D"mso-line-height-rule:exac=
+tly;text-decoration:none;color:#6AFE99;font-size:14px;box-sizing:border-box=
+" target=3D"_blank"><img alt=3D"" height=3D"32" src=3D"https://tenpoimagess=
+torage2.blob.core.windows.net/marketing/02_mail_2024/02_febrero/footer/foot=
+er-icono-instagram.png" style=3D"display:block;font-size:14px;border:0;outl=
+ine:none;text-decoration:none;margin:0;box-sizing:border-box" width=3D"32" =
+/></a></td>                  </tr>                 </tbody>                =
+</table>                </td>               </tr>              </tbody>    =
+         </table>             </td>            </tr>           </tbody>    =
+      </table>          </td>         </tr>         <tr style=3D"box-sizing=
+:border-box">          <td align=3D"left" bgcolor=3D"#000000" style=3D"padd=
+ing:20px;Margin:0;box-sizing:border-box;background-color:#000000">         =
+ <table cellpadding=3D"0" cellspacing=3D"0" role=3D"none" style=3D"mso-tabl=
+e-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0=
+px;box-sizing:border-box" width=3D"100%">           <tbody style=3D"box-siz=
+ing:border-box">            <tr style=3D"box-sizing:border-box">           =
+  <td align=3D"left" style=3D"padding:0;Margin:0;box-sizing:border-box;widt=
+h:560px">             <table cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-colla=
+pse:collapse;border-spacing:0px;box-sizing:border-box" width=3D"100%">     =
+         <tbody style=3D"box-sizing:border-box">               <tr style=3D=
+"box-sizing:border-box">                <td align=3D"center" style=3D"paddi=
+ng:0;Margin:0;box-sizing:border-box">                <p style=3D"Margin:0;m=
+so-line-height-rule:exactly;font-family:'open sans', 'helvetica neue', helv=
+etica, arial, sans-serif;line-height:28px;letter-spacing:0;color:#FFFFFF;fo=
+nt-size:14px;margin-bottom:9px;box-sizing:border-box"><strong style=3D"font=
+-weight:700 !important;box-sizing:border-box">Tenpo est&aacute; regulado po=
+r la Comisi&oacute;n para el Mercado Financiero</strong></p>               =
+ </td>               </tr>              </tbody>             </table>      =
+       </td>            </tr>            <tr style=3D"box-sizing:border-box=
+">             <td align=3D"center" style=3D"padding:0;Margin:0;box-sizing:=
+border-box;width:560px" valign=3D"top">             <table cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso=
+-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;box-sizing:bo=
+rder-box" width=3D"100%">              <tbody style=3D"box-sizing:border-bo=
+x">               <tr style=3D"box-sizing:border-box">                <td a=
+lign=3D"center" style=3D"padding:0;Margin:0;box-sizing:border-box">        =
+        <p style=3D"Margin:0;mso-line-height-rule:exactly;font-family:'open=
+ sans', 'helvetica neue', helvetica, arial, sans-serif;line-height:16.8px;l=
+etter-spacing:0;color:#7f7f7f;font-size:14px;margin-bottom:9px;box-sizing:b=
+order-box">Inf&oacute;rmese sobre las entidades autorizadas para emitir Tar=
+jetas de Pago en el pa&iacute;s, quienes se encuentran inscritas en los Reg=
+istros de Emisores de Tarjetas que lleva la CMF, en www.cmfchile. cl.</p>  =
+              </td>               </tr>              </tbody>             <=
+/table>             </td>            </tr>           </tbody>          </ta=
+ble>          </td>         </tr>        </tbody>       </table>       </td=
+>      </tr>     </tbody>    </table>    </td>   </tr>  </tbody> </table> <=
+/div> <img src=3D"https://u97746323.ct.sendgrid.net/wf/open?upn=3Du001.744T=
+tSNJ-2Bsqnkwk6ZnSJWxItQ4x7JXZjbu579NXM7fyMfDMqRwMqgo1cC3rwg-2BLTmgKC6Gqnyy0=
+kpniWwor34Ujcuu8-2Blgmou-2BLS28FU6OvZuAMwJldKSXC-2FnMfYJEoOeFfjP8Z5ZunnSCfi=
+Sprnz8ZqYkUvNiaLeSxZNaY53Dagdb3IVGbnzlunoXiaFjSzDAgrugyopBWvxN7PlR98ag-3D-3=
+D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !impo=
+rtant;width:1px !important;border-width:0 !important;margin-top:0 !importan=
+t;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !impor=
+tant;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !=
+important;padding-left:0 !important;"/></body> </html> </!doctype><img  alt=
+=3D"" border=3D"0" height=3D"1" width=3D"1" src=3D"https://wizrocketmail.ne=
+t/r?e=3DKwhlGR8IBgx6Y2V%2BDSZjfwsBBgVibyw1KS0sNUwBBQ1mbWN%2BYiYSC0FVQkc%2BN=
+TwUNDU9IFtVcXQray4uIT88P05%2BXkA%2BPDsoNi47JFwQZ10yLTcvKyFwPEhCWms%2BPnBxdW=
+tlfAUDAQZibmYUZWpgfQIEAwN1dnA8LSg5FEJZR1sjeGhpICAgIG1UVFI2Lz4%2FdSc%3D&c=3D=
+691066880"></img>
+------=_Part_3824570_1708309535.1777320696672--

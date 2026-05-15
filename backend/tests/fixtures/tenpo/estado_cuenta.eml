@@ -1,0 +1,774 @@
+Delivered-To: cbendekjara@gmail.com
+Received: by 2002:a05:7022:2522:b0:127:962a:a9da with SMTP id ds34csp945916dlb;
+        Sun, 3 May 2026 00:57:04 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1405:b0:82c:20ba:1570 with SMTP id d2e1a72fcca58-8352d28c184mr5101080b3a.29.1777795023888;
+        Sun, 03 May 2026 00:57:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777795023; cv=none;
+        d=google.com; s=arc-20240605;
+        b=OqrLwmKIcgwJEioW+QLWzodi4hEFroOQaiWcsC8XDMpIZ2dz55ZkHZlZUvsKUx672z
+         f0YLuyPA+B7dFFV6H1kXR5ZyjEgvXDI5pNT5YtgJXV2eYg+cmwfQ+WOE73yfdzFneMvY
+         wHUzcsxQt96YrJP33HamZvzzJTpBIxewSZv3y8/SpGRrgx18PFOWQGQkaQdzV+S69oLa
+         TYBgbw3fdmtBB1MoQsZ1BcbWPTCiKyyX6YkCSqvoj+/mHmNO+AKEIR/aWqGq2kfTI5Yo
+         4uZlMypdAcwwgxyMD+JE6KAcZ/ztpIk3DYW+Y3tK1S9pJFE+QxOvoDPozlXNBlVosBxs
+         E30g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=L0V48nW9AdMpD9pfDfks59kGMk6WZcgTHW/KqpiO/Yw=;
+        fh=6KV/773QQ8SLVq70Xr8WQ3nEJ3VYwH6vkQFtMVhOrp0=;
+        b=kPOvJJVs/50Ziu3W6IeOPN7A+2Xr9CiPLsDbk8fd2HZNYGbbsP5eBzJFOvEPvLkWs/
+         yvomfz1Te35MpOZZcHGZR15iz4gSZmgS9X4/9acEVDihsthibhHIz94yip4Suoj197Bn
+         TjKpz84YMMxHFanT5ZlqOuuBmUxKcprELTCl4YelMBrMpOXdT6HUABJDlR/x/3BlqFtc
+         UpnDpdWg4K+gdUxVRazbmUIMVKartRal4dzuqrfa68V1WrYLlKZUtjG8yhrpsGSHirYD
+         uPEnMvh5hnVAqesfpqyTNowA1JMRtROLCoeyAdJ0N1BbZ2mkvtJPQjPVtpckdb12rhNs
+         UpBA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@tenpo.cl header.s=s1 header.b=GRJ8VZAl;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="yE1gf/jH";
+       spf=pass (google.com: domain of bounces+10332379-e9d3-cbendekjara=gmail.com@sendgrid.tenpo.cl designates 159.183.172.198 as permitted sender) smtp.mailfrom="bounces+10332379-e9d3-cbendekjara=gmail.com@sendgrid.tenpo.cl";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=tenpo.cl
+Return-Path: <bounces+10332379-e9d3-cbendekjara=gmail.com@sendgrid.tenpo.cl>
+Received: from wfbtxccs.outbound-mail.sendgrid.net (wfbtxccs.outbound-mail.sendgrid.net. [159.183.172.198])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-835158d32b0si18364802b3a.86.2026.05.03.00.57.03
+        for <cbendekjara@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 03 May 2026 00:57:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+10332379-e9d3-cbendekjara=gmail.com@sendgrid.tenpo.cl designates 159.183.172.198 as permitted sender) client-ip=159.183.172.198;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@tenpo.cl header.s=s1 header.b=GRJ8VZAl;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="yE1gf/jH";
+       spf=pass (google.com: domain of bounces+10332379-e9d3-cbendekjara=gmail.com@sendgrid.tenpo.cl designates 159.183.172.198 as permitted sender) smtp.mailfrom="bounces+10332379-e9d3-cbendekjara=gmail.com@sendgrid.tenpo.cl";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=tenpo.cl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tenpo.cl;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	feedback-id:from:subject:to;
+	s=s1; t=1777795022; bh=L0V48nW9AdMpD9pfDfks59kGMk6WZcgTHW/KqpiO/Yw=;
+	b=GRJ8VZAlyz6b80KtxmSEymHo8MwXSrvaFBkSjXk96Pg6WJYNy9r5mD2kZvKH9ukbXRRa
+	sDyIIRGbCu9k68FCbS6i721tRVv+OitK3YIfTCMji6OYQecU6aZOCnUT8fQIxlo6MxuIrN
+	5lphG2FEQ58pECX8rKNOY3HFiPl/bvVph/qsyriroZJ9xOh68g16HQRqPmKmKqH7TkP6vu
+	tBzmiNmh0DKphsoZxWjAI/pU8gW7a6Jb91tdwgHEvYmPvB6k/FaXISMl0N+b8jzJzQ10mw
+	xSv70Vo+O8YloAxALaRKTwZ8nrjTxTXcbWtgUPaXLsLlTfwbB3fMk7V5cYYth05A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	feedback-id:from:subject:to;
+	s=smtpapi; t=1777795022; bh=L0V48nW9AdMpD9pfDfks59kGMk6WZcgTHW/KqpiO/Yw=;
+	b=yE1gf/jHFzAUifigDzmZGbF08Q4BwPEJhU0IOD6ivV9kWuHOKeEB5R5v7t+Kl4x6AL3+
+	Mx2RB1LzuIITzCsqKW5AVQ8rKSrguT5F58Tl5IZM1GZ9cPtnQ2YSO3C4iKf3wfexlzTnHv
+	sYIQYn5O/31KG1F57TsZGA0JOjJHFzDBk=
+Received: by recvd-697f748968-464wf with SMTP id recvd-697f748968-464wf-1-69F6FFCE-2B
+	2026-05-03 07:57:02.782410356 +0000 UTC m=+382802.690180067
+Received: from MTAzMzIzNzk (unknown)
+	by geopod-ismtpd-107 (SG) with HTTP
+	id o2Rd-g68SWKt68VO6uJNag
+	Sun, 03 May 2026 07:57:02.675 +0000 (UTC)
+Content-Type: multipart/mixed; boundary=0e5b7817f311643f7ece04eca92b4ba80b70c945e3c62a31592cc04b8ed0
+Date: Sun, 03 May 2026 07:57:02 +0000 (UTC)
+From: Tenpo <no-reply@tenpo.cl>
+Mime-Version: 1.0
+Message-ID: <o2Rd-g68SWKt68VO6uJNag@geopod-ismtpd-107>
+Subject: Este es tu estado de cuenta en Tenpo =?UTF-8?B?8J+StSDimpbvuI8=?=
+X-SG-EID: 
+ =?us-ascii?Q?u001=2E1=2F=2F=2FLwnbraUBaVSz1z6nCu4xJGHQOQYt7MeDsA0twapgaL7GVKpsslR9J?=
+ =?us-ascii?Q?FSOmsL9V84wSltuHRWv1=2FA71cCV55N1tcn4u6ry?=
+ =?us-ascii?Q?M4BJlT=2FFLXBudNWdEKBu5H1fIDD3qykQFit7YI0?=
+ =?us-ascii?Q?iFQnVMGCgHbGPkSnSwyIPa5zr=2F5zzayvxZ+moVa?=
+ =?us-ascii?Q?8SrhljR9ruqf2RTgjPI50REBgRjHxWT5sc0tSXd?=
+ =?us-ascii?Q?mUg3QbQc=2Fsylu64cOI9C2U=3D?=
+To: cbendekjara@gmail.com
+X-Entity-ID: u001.kQ1eeiNvnlna/xCov0QhOg==
+
+--0e5b7817f311643f7ece04eca92b4ba80b70c945e3c62a31592cc04b8ed0
+Content-Type: multipart/alternative; boundary=21ad0c03d214a643a56309a0508cdd6020fdcd1e6c48a5e898d2bdf70c56
+
+--21ad0c03d214a643a56309a0508cdd6020fdcd1e6c48a5e898d2bdf70c56
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Mime-Version: 1.0
+
+Actualizaci=F3n de Contrase=F1a Exitosa
+
+Estado de Cuenta
+
+Hola Carlos Bendek
+
+Ya est=E1 disponible tu estado de cuenta Tenpo. Adjuntamos el detalle de tu=
+s movimientos desde el 01/4/2026 hasta el 30/4/2026.
+
+Por seguridad, para abrir tu estado de cuenta en el archivo adjunto, debes =
+ingresar como contrase=F1a tu RUT=20
+ (sin d=EDgito verificador)
+
+Ejemplo:
+
+Visita nuestro
+
+centro de ayuda
+ undefined
+
+O ll=E1manos al
+
+600 500 1900
+ tel:+6005001900
+
+para comunicarte con un ejecutivo.
+
+Inf=F3rmese sobre las entidades autorizadas para emitir Tarjetas de Pago en=
+ el pa=EDs, quienes se encuentran inscritas en los Registros de Emisores de=
+ Tarjetas que lleva la CMF, en www .cmfchile. cl
+
+S=EDguenos en:
+
+undefined
+ undefined
+ undefined
+--21ad0c03d214a643a56309a0508cdd6020fdcd1e6c48a5e898d2bdf70c56
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=iso-8859-1
+Mime-Version: 1.0
+
+<!doctype html>
+<html>
+ =20
+  <head>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <title>Actualizaci=F3n de Contrase=F1a Exitosa</title>
+    <style media=3D"all" type=3D"text/css">
+@media screen {
+  @font-face {
+    font-family: Gotham-Light;
+    font-weight: 400;
+    src: url("https://res.cloudinary.com/movingout/raw/upload/v1558966336/G=
+otham-Light_cjr0zw.otf") format("truetype");
+  }
+  @font-face {
+    font-family: Gotham-Book;
+    font-weight: 600;
+    src: url("https://res.cloudinary.com/movingout/raw/upload/v1558966336/G=
+otham-Book_kvclzp.otf") format("truetype");
+  }
+  @font-face {
+    font-family: Gotham-Bold;
+    font-weight: 700;
+    src: url("https://res.cloudinary.com/movingout/raw/upload/v1558966336/G=
+otham-Bold_jvm10l.otf") format("truetype");
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .container-body-email {
+    display: block;
+    width: 100% !important;
+  }
+  .container-body-img {
+    display: block;
+    width: 100% !important;
+  }
+  .welcome-account {
+    display: none;
+  }
+  .smile-icon {
+    display: none;
+  }
+  .subtitle-body-email-5 {
+    text-align: center;
+  }
+  .title-body-email-7 {
+    text-align: center;
+  }
+  .comercial-footer-rrss {
+    padding: 7% 0% 0% 3% !important;
+    height: 103px;
+  }
+  .standard-footer-legal {
+    margin: 15px 15px 15px 15px !important;
+  }
+}
+
+
+@media (min-width: 481px) {
+  .welcome-account-mobile-version {
+    display: none;
+  }
+  .smile-icon-mobile-version {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 640px) {
+  table[class=3Dbody] h1,
+  table[class=3Dbody] h2,
+  table[class=3Dbody] h3,
+  table[class=3Dbody] h4 {
+    font-weight: 600 !important;
+  }
+  table[class=3Dbody] h1 {
+    font-size: 22px !important;
+  }
+  table[class=3Dbody] h2 {
+    font-size: 18px !important;
+  }
+  table[class=3Dbody] h3 {
+    font-size: 16px !important;
+  }
+  table[class=3Dbody] .container {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  table[class=3Dbody] .btn table,
+  table[class=3Dbody] .btn a {
+    width: 100% !important;
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .title-body-email-8 {
+    margin: 12% 0% 7% 0%;
+  }
+  .title-body-email-8 p {
+    line-height: 20px !important;
+    padding: 0px 0px 0px 0px !important;
+  }
+  .comercial-footer-tenpo-logo-images-welcome img {
+    margin-right: 9px !important;
+    margin-left: 9px !important;
+    height: 31px;
+  }
+  .title-body-email-7 p {
+    padding: 5% 0% 5% 0% !important;
+  }
+  .container-body-email {
+    padding-top: 1% !important;
+  }
+  .comercial-footer-tenpo-logo-images img {
+    height: 25px !important;
+    padding-top: 2%;
+  }
+  .icon-text {
+    display: inline-block !important;
+    text-align: center;
+    border-left: 0px !important;
+    width: 30% !important;
+  }
+  .image-doc {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  #confirm-eliminate .image-doc {
+    width: 80% !important;
+    margin-bottom: 20px;
+  }
+  .standard-title-body-statement {
+    border-left: 0px !important;
+    text-align: center !important;
+    padding-left: 0px !important;
+    margin-right: 10% !important;
+    width: 300px !important;
+    margin-left: -35px !important;
+  }
+  .subtitle-body-email-5 {
+    text-align: left;
+  }
+  .subtitle-body-email-5 p {
+    text-align: center;
+    padding-right: 2%;
+  }
+  .image-text-column {
+    text-align: center;
+  }
+  .image-rut {
+    display: none !important;
+  }
+  .image-rut-mobile {
+    display: inline !important;
+  }
+  .image-rut-mobile img {
+    padding-bottom: 10% !important;
+  }
+  .title-body-email-2 {
+    text-align: center;
+  }
+  .divider-spacer {
+    padding-top: 0% !important;
+  }
+  .title-body-email-4 {
+    margin-top: -4% !important;
+  }
+  .new-boxed {
+    width: 300px !important;
+    margin-left: -2% !important;
+  }
+  #boxed-validation {
+    padding-bottom: 0px !important;
+  }
+  #standard-eliminate-account .standard-body-email-class {
+    padding-right: 6% !important;
+  }
+  #standard-eliminate-account .standard-title-body-statement {
+    margin-left: -40px !important;
+  }
+  #main-eecc .standard-body-email-class {
+    padding-right: 6% !important;
+  }
+  .standard-title-body-statement-2 {
+    text-align: center !important;
+    border-left: 0px !important;
+    padding-right: 6% !important;
+  }
+  .standard-footer-tenpo-text {
+    padding-top: 7% !important;
+  }
+}
+</style>
+  </head>
+
+  <body style=3D"-webkit-font-smoothing: antialiased; height: 100% !importa=
+nt; line-height: 1.6em; margin: 0; padding: 0; -ms-text-size-adjust: 100%; =
+-webkit-text-size-adjust: 100%; width: 100% !important; background-color: #=
+f6f6f6;">
+    <div class=3D"body" style=3D"box-sizing: border-box; background-color: =
+#f6f6f6; width: 100%; background-position: center; background-size: cover; =
+background-repeat: no-repeat;">
+      <div class=3D"content" style=3D"box-sizing: border-box; display: bloc=
+k; margin: 0 auto; max-width: 600px;">
+
+
+<table class=3D"standard-header-tenpo" style=3D"box-sizing: border-box; bor=
+der-collapse: separate !important; mso-table-lspace: 0pt; width: 100%; back=
+ground-color: #121212; font-family: 'Montserrat', 'Roboto', 'Helvetica'; op=
+acity: 1; color: white; border-spacing: 0; background-size: contain; backgr=
+ound-repeat: no-repeat;" width=3D"100%" bgcolor=3D"#121212">
+  <tr>
+    <td style=3D"box-sizing: border-box; font-family: 'Montserrat', 'Roboto=
+', 'Helvetica'; font-size: 14px; vertical-align: top; opacity: 1;" valign=
+=3D"top">
+      <table style=3D"box-sizing: border-box; border-collapse: separate !im=
+portant; mso-table-lspace: 0pt; width: 100%;" width=3D"100%">
+        <tr>
+          <td style=3D"box-sizing: border-box; font-family: 'Montserrat', '=
+Roboto', 'Helvetica'; font-size: 14px; vertical-align: top; opacity: 1;" va=
+lign=3D"top">
+            <div class=3D"standard-header-tenpo-logo" style=3D"box-sizing: =
+border-box; text-align: center; padding: 5%;">
+            <img src=3D"https://tenpoimagesstorage2.blob.core.windows.net/m=
+ailing/tenpoLogo.png" style=3D"-ms-interpolation-mode: bicubic; max-width: =
+100%; height: 49px; width: 147px; margin: 0 auto;" width=3D"147">          =
+  </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div id=3D"main-eecc" style=3D"box-sizing: border-box;">
+  <div class=3D"standard-body-email-class" style=3D"box-sizing: border-box;=
+ background-color: white; padding-left: 6%; padding-top: 8%; padding-right:=
+ 6%;">
+    <div class=3D"title-body-email" style=3D"box-sizing: border-box; font-f=
+amily: 'Montserrat', 'Roboto', 'Helvetica'; font-size: 20px; color: #121212=
+; margin-bottom: 44px; text-align: center; opacity: 1;">
+      <span>
+        <b>
+          Estado de Cuenta
+        </b>
+      </span>
+    </div>
+    <div class=3D"title-body-email-2" style=3D"box-sizing: border-box; font=
+-family: 'Montserrat', 'Roboto', 'Helvetica'; color: #121212; font-size: 18=
+px; opacity: 1; padding-bottom: 16px;">
+      <span>
+        <b>
+          Hola Carlos Bendek
+        </b>
+      </span>
+    </div>
+    <div class=3D"subtitle-body-email-5" style=3D"box-sizing: border-box; t=
+ext-align: left; margin-top: 10px;">
+     =20
+      <!-- fe de erratas
+      <p style=3D"margin: 0; margin-bottom: 15px; font-family: 'Montserrat'=
+, 'Roboto', 'Helvetica'; font-size: 16px; font-weight: 200; opacity: 1; col=
+or: #121212; line-height: 24px;">Hace unos d=EDas te enviamos tu estado de =
+cuenta por correo. El documento adjunto tiene algunos errores.</p>
+      <p style=3D"margin: 0; margin-bottom: 15px; font-family: 'Montserrat'=
+, 'Roboto', 'Helvetica'; font-size: 16px; font-weight: 200; opacity: 1; col=
+or: #121212; line-height: 24px;">Te pedimos disculpas por las molestias que=
+ pudimos causarte. =A1Lecci=F3n aprendida!</p>
+      <p style=3D"margin: 0; margin-bottom: 15px; font-family: 'Montserrat'=
+, 'Roboto', 'Helvetica'; font-size: 16px; font-weight: 200; opacity: 1; col=
+or: #121212; line-height: 24px;">
+        Te adjuntamos tu estado de cuenta corregido, donde podr=E1s ver tu =
+historial de movimientos. Adjuntamos el detalle de los mismos desde el <b>0=
+1/4/2026 hasta el 30/4/2026.</b>
+      </p>
+      fe de erratas -->
+     =20
+      <p style=3D"margin: 0; margin-bottom: 15px; font-family: 'Montserrat'=
+, 'Roboto', 'Helvetica'; font-size: 16px; font-weight: 200; opacity: 1; col=
+or: #121212; line-height: 24px;">
+        Ya est=E1 disponible tu estado de cuenta Tenpo. Adjuntamos el detal=
+le de tus movimientos desde el <b>01/4/2026 hasta el 30/4/2026.</b>
+      </p>
+    </div>
+
+
+    <div class=3D"image-text-column" style=3D"box-sizing: border-box; margi=
+n-top: 34px; width: 100%;">
+      <div class=3D"icon-text" style=3D"display: inline-block !important; w=
+idth: 15%; margin-right: 8px; box-sizing: border-box; text-align: center; v=
+ertical-align: top;">
+          <img src=3D"https://tenpoimagesstorage2.blob.core.windows.net/mai=
+ling/accountStatementIcon.png" style=3D"-ms-interpolation-mode: bicubic; wi=
+dth: 100%; max-width: 74px;">=20
+      </div>
+      <div class=3D"icon-text image-doc" style=3D"display: inline-block !im=
+portant; text-align: center; width: 82%; margin-right: 2px; margin-bottom: =
+20px; box-sizing: border-box;">
+        <p class=3D"standard-title-body-statement-2" style=3D"font-size: 14=
+px; color: #121212; text-align: left; border-left: 1px solid lightgrey; pad=
+ding-left: 13px; font-family: 'Montserrat', 'Roboto', sans-serif; font-weig=
+ht: normal; margin: 0; margin-bottom: 15px; opacity: 1; margin-top: 0px; he=
+ight: 50px;">
+          Por seguridad, para abrir tu estado de cuenta en el archivo adjun=
+to, debes <b class=3D"Bold">ingresar como contrase&ntilde;a tu RUT</b>=20
+          (sin d&iacute;gito verificador)
+        </p>
+      </div>
+    </div>
+
+    <div class=3D"standard-title-body-validation" style=3D"box-sizing: bord=
+er-box; font-family: 'Montserrat', 'Roboto', 'Helvetica'; font-size: 15px; =
+color: #121212; margin-bottom: 0px; padding-top: 10px; text-align: center; =
+opacity: 1;">
+        <p class=3D"titulo2" style=3D"font-family: 'Montserrat', 'Roboto', =
+'Helvetica'; font-size: 16px; font-weight: normal; margin: 0; opacity: 1; m=
+argin-bottom: 16px;"><b>Ejemplo:</b></p>
+    </div>
+   =20
+    <div class=3D"image-rut" style=3D"box-sizing: border-box; width: 353px;=
+ height: 132px; display: block; margin-left: auto; margin-right: auto; marg=
+in-bottom: 30px;">
+      <img src=3D"https://tenpoimagesstorage2.blob.core.windows.net/mailing=
+/accountStatementExample.png" alt style=3D"-ms-interpolation-mode: bicubic;=
+ max-width: 100%;">    </div>
+   =20
+    <div class=3D"image-rut-mobile" style=3D"box-sizing: border-box; displa=
+y: none;">
+      <img src=3D"https://storagedevglobal.blob.core.windows.net/dev-tenpo-=
+cdn/mailing/rutfullmobile.png" alt style=3D"-ms-interpolation-mode: bicubic=
+; max-width: 100%;">    </div>
+
+    <table class=3D"divider-wrapper" style=3D"box-sizing: border-box; borde=
+r-collapse: separate !important; mso-table-lspace: 0pt; width: 100%;" width=
+=3D"100%">
+    	<tr>
+    		<td class=3D"divider-spacer" style=3D"box-sizing: border-box; font-fa=
+mily: 'Montserrat', 'Roboto', 'Helvetica'; font-size: 14px; vertical-align:=
+ top; opacity: 1; padding: 20px;" valign=3D"top">
+    			<table class=3D"divider divider- " cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"box-sizing: border-box; border-collapse: separate !important; m=
+so-table-lspace: 0pt; width: 100%;" width=3D"100%">
+    				<tr>
+    					<td style=3D"box-sizing: border-box; font-family: 'Montserrat', 'R=
+oboto', 'Helvetica'; vertical-align: top; opacity: 1; font-size: 0; line-he=
+ight: 0; height: 1px; margin: 0; padding: 0; border-top: 1px solid #E3E3E3;=
+" valign=3D"top"></td>
+    				</tr>
+    			</table>
+    		</td>
+    	</tr>
+    </table>
+    <div id=3D"eecc-text" style=3D"box-sizing: border-box;">
+      <div class=3D"title-body-email-3" style=3D"box-sizing: border-box; fo=
+nt-family: 'Montserrat', 'Roboto', 'Helvetica'; font-size: 12px; color: #12=
+1212; text-align: center; opacity: 1; margin-top: 10px;">
+        <img src=3D"https://tenpoimagesstorage2.blob.core.windows.net/maili=
+ng/helpCenterIcon.png" height=3D"29" style=3D"-ms-interpolation-mode: bicub=
+ic; max-width: 100%;">       =20
+        <div style=3D"box-sizing: border-box; vertical-align: top; margin-t=
+op: 3px; display: inline-block;">
+          Visita nuestro
+          <span>
+           =20
+            <a style=3D"box-sizing: border-box; text-decoration: none; colo=
+r: #121212;">
+              <b>centro de ayuda</b>
+            </a>
+           =20
+          </span>
+        </div>
+      </div>
+      <div class=3D"title-body-email-4" style=3D"box-sizing: border-box; fo=
+nt-family: 'Montserrat', 'Roboto', 'Helvetica'; font-size: 12px; color: #12=
+1212; margin-bottom: 5px; text-align: center; opacity: 1; margin-top: -2%; =
+padding-bottom: 10px;">
+        <span>
+          O ll=E1manos al
+          <span>
+            <b>
+              <a href=3D"tel:+6005001900" style=3D"box-sizing: border-box; =
+text-decoration: none; color: #121212;">
+                <b>600 500 1900</b>
+              </a>
+            </b>
+           =20
+          </span>
+          para comunicarte con un ejecutivo.
+        </span>
+        <br>
+        <br>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class=3D"standard-footer" style=3D"box-sizing: border-box; background:=
+ #F7F7F7 0% 0% no-repeat padding-box; font-family: 'Montserrat', 'Roboto', =
+'Helvetica'; opacity: 1;">
+
+  <div class=3D"standard-footer-legal" style=3D"box-sizing: border-box; col=
+or: #A7A7A7; font-size: 10px; padding: 3%; line-height: 17px; letter-spacin=
+g: 0dp; margin: 10px 15px 5px 15px; height: 76px; text-align: center;">
+    <span style=3D"color: #A7A7A7; font-size: 10px;">=20
+      Inf=F3rmese sobre las entidades autorizadas para emitir Tarjetas de P=
+ago en el pa=EDs, quienes se encuentran inscritas en los Registros de Emiso=
+res de Tarjetas que lleva la CMF, en www .cmfchile. cl
+    </span>
+  </div>
+  <div class=3D"standard-footer-rrss" style=3D"box-sizing: border-box; colo=
+r: #A7A7A7; font-size: 10px; background: #121212 0% 0% no-repeat padding-bo=
+x; opacity: 1; height: 114px;">
+    <div class=3D"standard-footer-tenpo-text" style=3D"box-sizing: border-b=
+ox; color: #FFFFFF; font-size: 18px; text-align: center; padding-top: 3%;">
+      S=EDguenos en:
+    </div>
+      <div class=3D"standard-footer-tenpo-logo" style=3D"box-sizing: border=
+-box; color: #A7A7A7; font-size: 10px; text-align: center; padding: 2%;">
+           <a style=3D"box-sizing: border-box; color: #A7A7A7; font-size: 1=
+0px;"> <img src=3D"https://storagedevglobal.blob.core.windows.net/dev-tenpo=
+-cdn/mailing/instagram-white-eecc.png" style=3D"-ms-interpolation-mode: bic=
+ubic; max-width: 100%; color: #A7A7A7; font-size: 10px; margin-right: 17px;=
+ margin-left: 17px; height: 30px;"></a>
+           <a style=3D"box-sizing: border-box; color: #A7A7A7; font-size: 1=
+0px;"><img src=3D"https://storagedevglobal.blob.core.windows.net/dev-tenpo-=
+cdn/mailing/facebook-white-eecc.png" style=3D"-ms-interpolation-mode: bicub=
+ic; max-width: 100%; color: #A7A7A7; font-size: 10px; margin-right: 17px; m=
+argin-left: 17px; height: 30px;"></a>
+           <a style=3D"box-sizing: border-box; color: #A7A7A7; font-size: 1=
+0px;"> <img src=3D"https://storagedevglobal.blob.core.windows.net/dev-tenpo=
+-cdn/mailing/youtube-white-eecc.png" style=3D"-ms-interpolation-mode: bicub=
+ic; max-width: 100%; color: #A7A7A7; font-size: 10px; margin-right: 17px; m=
+argin-left: 17px; height: 30px;"></a>
+      </div>
+  </div>
+</div></div>
+    </div>
+  <img src=3D"http://url7240.tenpo.cl/wf/open?upn=3Du001.744TtSNJ-2Bsqnkwk6=
+ZnSJWxItQ4x7JXZjbu579NXM7fyNt3mFnHtO84IY-2B5-2BVJwbi06B9L74mkh-2FO8MzALTxK5=
+KGfv8mBkjpk3Wizuz-2F2b1XfnWg6dTBgSGTJENHzDVhqujsQi7tNGhHWHmCW-2BcUsKzqGF48J=
+UH0uyqMwAYsnePyrhTGpcqTi-2BH9XsDLes3-2BD9az580a-2B8UkiZjihIrLNRA-3D-3D" alt=
+=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;=
+width:1px !important;border-width:0 !important;margin-top:0 !important;marg=
+in-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;p=
+adding-top:0 !important;padding-bottom:0 !important;padding-right:0 !import=
+ant;padding-left:0 !important;"/></body>
+</html>
+--21ad0c03d214a643a56309a0508cdd6020fdcd1e6c48a5e898d2bdf70c56--
+
+--0e5b7817f311643f7ece04eca92b4ba80b70c945e3c62a31592cc04b8ed0
+Content-Disposition: attachment; filename="1D8D7B3D_B69B_4EBE_979D_CB416E132F47_05_2026_1777795022651.pdf"
+Content-Transfer-Encoding: base64
+Content-Type: application/pdf; name="1D8D7B3D_B69B_4EBE_979D_CB416E132F47_05_2026_1777795022651.pdf"
+
+JVBERi0xLjQKJfbk/N8KMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovVmVyc2lvbiAvMS43Ci9Q
+YWdlcyAyIDAgUgo+PgplbmRvYmoKMyAwIG9iago8PAovQ3JlYXRpb25EYXRlIDxENjFFOTIzOTA1
+MDRBMTY3QkU3MTE3NTU3M0I2Q0Q1QjY0NDVFRjY2MzEzOUU0PgovUHJvZHVjZXIgPEZENTRDNTY3
+NUY0NkZDM0VGQTJENTcwNjIwQUY5RTA2MjI+Ci9UaXRsZSA8RDc1N0Q0Njg1MzVEQjEzNkVCNjI0
+NDE3MjNFRjg5MDg+Cj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9UeXBlIC9QYWdlcwovS2lkcyBbNCAw
+IFIgNSAwIFJdCi9Db3VudCAyCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9UeXBlIC9QYWdlCi9NZWRp
+YUJveCBbMC4wIDAuMCA1OTUuMjc1IDg0MS44NzVdCi9QYXJlbnQgMiAwIFIKL0NvbnRlbnRzIDYg
+MCBSCi9SZXNvdXJjZXMgNyAwIFIKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1R5cGUgL1BhZ2UKL01l
+ZGlhQm94IFswLjAgMC4wIDU5NS4yNzUgODQxLjg3NV0KL1BhcmVudCAyIDAgUgovQ29udGVudHMg
+OCAwIFIKL1Jlc291cmNlcyA5IDAgUgo+PgplbmRvYmoKNiAwIG9iago8PAovTGVuZ3RoIDQxNDgK
+L0ZpbHRlciAvRmxhdGVEZWNvZGUKPj4Kc3RyZWFtDQoNR22H6q+gYwxClws8kg7fhWfu5riIj0Oc
+hwQD3s7nVzcXKx4hUQhf337zN/tULkd+zpILbibiLJR8eDX1uPViYWMpL3pAt8C2dfi9lv756PD9
+Jy0XCpdLMbT97XLSwXzscXlGamEWVMUQDx7FnNRmTu6VQBB3BxHR2SoSMaG8mxoW5GHQJwnw+K0x
+cbOnYBy0v5DVltGQCEJQuXDrPg4DFO75pTgoCSrKd8JuCvqGdzeFWHP3bXBGd8rH3QaiAoIViF2A
+SP3dXDC42oz2dGB4AcaBUsTLt0L7PAqfIo9urUEbK7/aM5gOXXRKUrcDb9kC0CGDk9keTfSuy7f0
+EUtKvPV774fN0WxsK9Rwd0v/FJ/YPEg3M/B/280TtaGqEQ9SGTBW5rlmHCjYnTKNaNKhdm/BmiZO
+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
+fy+1oPYQC4GOnfX5+8g2B2a4C71T9Ca2J3V+qs4BPHmPlFapfCNxUt9y9PGdO8hwLzuULdxqBmdv
+RtZ8OhYD4eBGL6NkDSns31dPx5cUhQvGe7IWaaJaBYy5jc/iUnw2AG6UPPh/pCDbw+mMOdePTSG9
+9l9oh4v5r2x9ptL5pmhNRzg7mfApVe3d3xvjeZdRzvmaUeHot+URuVWgPt3ZAuNEVhhL4skljjhk
++FK5au36vzrcPURwUUzM4Yavvw0KZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqCjw8Ci9Gb250IDEw
+IDAgUgovWE9iamVjdCA8PAovRm9ybTEgMTEgMCBSCj4+Cj4+CmVuZG9iago4IDAgb2JqCjw8Ci9M
+ZW5ndGggMzg0Ci9GaWx0ZXIgL0ZsYXRlRGVjb2RlCj4+CnN0cmVhbQ0KEz7B3DdQGJ2FWnsMpatK
+vf8vRejhFtf+OU2B3nXjjcRJI/9eaJyGsWNMS+xAz+8PNqPoz29V15hHsQ4/jCP6lSSZsg/xjkJ3
+qAfNfLcaVop01dhw2iijmp/uXxdzNvKWno7OTo0QfNmJoQ3FyPp9MGV7RnmlidKVHXs6OMRe3Oh7
+GtU+C6BnNPJqUA6x/SdHZuHJLmaGnxKoDQVYIxO76atxeFTP48EtOYN0hrmO2tc07EeKaKiuvgVQ
+6l8LRiVQpUlzHWauXEqI4h9poGe/S9WZ+6ULbNszLklgX328HTS/I9IRs+XW/keiYx+tufUwTxua
+1WAyTyBP3dFjVnfhm82IVKZcN+D2H1gvEOXhua1vBT1AZIjkc3oQ/xTMLJFvnQ0vIwlw/FhPd/xU
+VhiaMUEFUW1g7NP07y6Si+svPA8zy0PBxA9hUKSRORvV7ZbrwCxyWqtgaxygs0jLqfgK3aO+Em6r
+efs+8+s6a9sg2Cq1zhGPsVSTdvvtm5bKEqOiDQplbmRzdHJlYW0KZW5kb2JqCjkgMCBvYmoKPDwK
+L0ZvbnQgMTIgMCBSCj4+CmVuZG9iagoxMCAwIG9iago8PAovRjEgMTMgMCBSCi9GMiAxNCAwIFIK
+Pj4KZW5kb2JqCjExIDAgb2JqCjw8Ci9MZW5ndGggMjY1NAovVHlwZSAvWE9iamVjdAovU3VidHlw
+ZSAvRm9ybQovUmVzb3VyY2VzIDw8Ci9FeHRHU3RhdGUgMTUgMCBSCi9YT2JqZWN0IDw8Ci9JbTEg
+MTYgMCBSCi9JbTIgMTcgMCBSCj4+Cj4+Ci9CQm94IFswLjAgMC4wIDExOS4wIDQyLjBdCi9GaWx0
+ZXIgL0ZsYXRlRGVjb2RlCi9NYXRyaXggWzAuNzUgMC4wIDAuMCAwLjc1IDAuMCAwLjBdCj4+CnN0
+cmVhbQ0KgZsINSA1Q9HGHpUaQA2TSLJvFXJ32jAsKE5yCjD2hgziQ71fIjsppC0iC8fwBH3Mx96d
+wsGfeUAWpmKT9dYrEcKPhY4R/rSddvV4f2gTi74QV8/aydrm5JMG+dRC/IfatSShPUVHxY68BR9W
+XQuyrxG3cg+5Z4e/pqYHpHgqLHCBXtP+DWQ4aS2nR9OyDCqFkyCSJZD4292VyplKkA1Nptxyt+fo
+W6uA67/QoRTWR6ff3/PsFeuFfnG2vSTOTLxPnE/tM27kXIscqOzuys6fcg+YjP6B2QiDPcrodO+5
+VQVo/NhT/3UjzM2lpWb/tNxK3RYiACUKK2t6j2GMq5ORtfQqTaHtfChujAmrHvIy/gpf/EHHF9jJ
+SXKuKQkxcA6NMGZpXH9DRDXrDG3xVuz4OppUWNQ/gDUTF/cJz1nCMZYFwCTiAhwtECK8bNyY1EKd
+F7ZVGvZjRNpU4rklck+fhzWG5WBLsXW6+P6Tlr/lyTJ9Pzg9fXH+TrV948A9qKqjGPm+/nZ6pD2O
+9hCXLVu0Kehyhcp2E7Ebu6pobbiCdPYipJ2dBNXm08Go0bgxY0qxFaH/tWPCs6PxcqGDEyaAc9m/
++w3LjNBqESZR+vYe3UsQfa0ihzfNhpCvOhipVOVjT8V7XpYnaLhSOnxvS67OFSZ8uGkLAD/c7SWO
+7/5+5gzroU2WMfReN5bKSmvY+7+XLgdI8WpeXpN/F3uMP5bcgejhD3qK0f/UloYdiCNyS6BYKd3O
+1WUPjvOIPukzSkP8feSEpt2TWgLGUxpzQ7eV/KXlC6wAxxerDZQUp1JBYUAh3YyNY0WxzljW8kHk
+DTFu2RPhf/AW6RGLfX7kc7lsqw21dbmx3M4MrLhkz3LQYFqS5CQQ8hl31xY8PWIcIOpBdOEnBYCt
+5D+2z0gQ3BhB7+/fkeoRQUPEs2SqHBTueq0fW6L61klRM0hdlT/Ud2CwCtiYRPxlOET9xz7ZazCo
+M4YyeNyZWr5yO8vxiVOUKCtLUlY4wvSfM4vOanpNptAio6AKgOgAzxsCL97h2NVALIRzIs5UgdXJ
+yn8wh3EV0ewQU6Iz+38x42ej2FYeZskNe/mKERgnOGBur3+V1XJ8NWn+qLJH/H8iA1QuNjVooPrm
+uiKEPh4xsL1cvmgq/4LHtoMfJf0RuWxPrBEXc131cBDzWWLbUI6Df9GANpN03t0MBpWmQ6pGJ9qI
+K2LyKbuNBnfpARL9GEG99tzeypkd0/uyVi0+5P/35E17ruAIX85mlqFQbHkLUT1ZfIXHErUhY3Dv
+l4pwoqs0QuaxLvYeqfPQltDnVFU40XUVp0F071zgnRMXKVE8EFSqe33kAQ5vy+O1gGxHdM2DGXid
+6eMR7/qvIjAu6dPFta0JT746KbxRSWeyRN+7rhqwsJgYG8mDFXVi23UQjoCiraSXGnH4sfMumaSa
+8TeECtBq8kZTDO5zioMRjL4/r/0ggR4Enp8AkiZjzHCLGeaVIvvDLo+pi6MlFZP9+lcR/erUgqO6
+KOfqB4553X35sxaT0f8xsF/SBlJFvi4xmJzh4A37brNCVZEZ6joihchpBVyc/ekM9aoBnn0VKdXZ
+WQCKb071KsdY1TUQraJQab8f1KQDI4cOfifmuDXkek0JwzRNypSHXqtPlOQhIaSp4TotHJ3DZyVQ
+31MDiW1vHIeTQOtXpSGpXD1uxTNobDvRkq5bEGmjP+VDdnVo3MbGd1o5u7+XQm6UIXzemwaECUPf
+57oidVc4pMgAwle/EfZPhdXsQb0AYN/Ij5TAfHxYw5rbEx4NLKUi0ExGGhOc1lNFhjXv6nfhlS/p
+/E++sp5qWvRBuSgJa4D0Y6ZXCDhpvP/1/QJyjGvp5V8+ZvrY0ndjrFINHF0gwi0WejJaoTJ7Ldt8
+bKt/acZB+7P2ec7VOfGluVctVOtCfrqmk1wYNeV5jLCqJkjUheNWEwUwP3ThBVAG4TmKvFfgeme0
+XyryNcvv+b4DvCnwVoo6Fqi9OT2xMH8/AIk2uwEMtTIPUdmXW9BSxoIjE8W3NAfRxCLowVMOSz9Y
+b7/hdCG8FSydEC6gru1oBpLeAdc1hacVUraQAskJj/tuDToHu+CjN0aC3rvoiUcWKy4x/0a2socS
+CvXtxQRIDrOxrOvQKQBsKCK5iF0pRdQIttAh2puQ1kNbdg8IAsgVnaOZFrh9Bx1llH2WPU78/Jxy
+N8qAXCOeAdGD6FAbJgpqhkUGoidgYkOB5sBnSQ7ekBfBBpbrsynkZJpXd31i01DqLGRWvToMDQhE
+zSMYPWLSdbWoFtJLv0ST9cR/t2Uq3YrXOLwkVWUp4+soddxz9v9n4v6lf3ZiFtsYGVSGO0rCPlaj
+9gYLR1PSlueYgKbyTX5d4p94JCtSW8lIT0EP/sf5KDF8XF0Q57wi4z/fbPfzSVpjhy8drt0Nli5O
+Gljxv5n3jNsw7XtjJWOusAIM+a6zF7xfjjKZQcK/UBVAmphjEgA2qbuELLIoaGYDPbI0bQgCPVhC
+z/n/wGdBqy4mN/KIcevoVC5dWCpGRxHWxDAjfTQBUQddBbGaZXg6VrBftE6rr3Pe3YSAmp2hrv4e
+A6P3MqUSYvlBKRybKVRM5w3GNWIoTOq8YaMzrXbNa7jVCxlcPU8wqzICgcpeIhCARhv3KNi4y1EY
+SH0sRk0t3UKEBg5aJwq7nuRlyholbqJuV/Qzqsz9FDeXNLbzYZ02/lwXAnAr18occBdO4Dk8V02u
+5TUAaoHHp9D2v35dEDN6g6QuYrAGzB9fYcNJEDnbtcA6NaqpPyZRbs+Rh44l8ICX2xOXFfWAyFPo
+g/T4NIYWyWfqR/wS93SALEd5Gkvuercj5P7csIc1HMZuIhx7GclDBmKrxvr6Zf7/OyI6CsPRAky+
+ZcqeEVGzh4xPaYdWvQSRu59VhSCG3NqxWMFUfJH8gHeBLpv+pqfNBRcAnCqvVR1NjTSkbpNZqrei
+uSJvHXeoQZSzeayEmpCLX5cSeeL1jJiYbVzw7TE5YzSHKtTnbKwjBwKB1NqBT0OmSe4SvRtvnU8O
+9XebAsGgZlvN0yrKK7ucx/2CYFdIoa5+ofOTxODSCutMLfSNOtJLjEZbLjoZxU/iNQ/LsdwPq/aK
+mtmkmIp+j/7sBuDqNrFRUljjS714rhYYIigSLFwFeEVvyRaOuCoryK1O+wAVhdokxSsemGH5iEYz
+n2sYLVrm/viP7SEh+T26R0ChGITOgEBD1abU3qjDEUOZizru9QZFGuVVFfyAF+nIw8VbZgkNDo9y
+8vpqirr9FSUUdXzIQNQiFiqgKnh9NMOIbOakFi9A3p64NhZc6x/z1wKb+aV9H4At3G/IRB8HXDav
+CgamNTKHS2MVmDQkXh/96mIoegUnfy2D8aRsufzNa5vx5sMJuyqYS69aYKJNQDs5kE5RlmKDeqjF
+taAQIfVHnD0SElGOFLmIHzR8CQ3pl10B4iUcwYyf/qCnoOryK6FWTt1xVvKziMsdq6RJdqXjQ8XJ
++HofqGImwZj5znDPnCx4DXsTzdUS7794UGBLQnd1mb03Ctyk3l0NCmVuZHN0cmVhbQplbmRvYmoK
+MTIgMCBvYmoKPDwKL0YxIDEzIDAgUgo+PgplbmRvYmoKMTMgMCBvYmoKPDwKL1R5cGUgL0ZvbnQK
+L1N1YnR5cGUgL1R5cGUxCi9CYXNlRm9udCAvSGVsdmV0aWNhCi9FbmNvZGluZyAvV2luQW5zaUVu
+Y29kaW5nCj4+CmVuZG9iagoxNCAwIG9iago8PAovVHlwZSAvRm9udAovU3VidHlwZSAvVHlwZTEK
+L0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZAovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwo+Pgpl
+bmRvYmoKMTUgMCBvYmoKPDwKL2dzMSAxOCAwIFIKL2dzMiAxOSAwIFIKPj4KZW5kb2JqCjE2IDAg
+b2JqCjw8Ci9MZW5ndGggMTIKL1R5cGUgL1hPYmplY3QKL1N1YnR5cGUgL0ltYWdlCi9GaWx0ZXIg
+L0ZsYXRlRGVjb2RlCi9CaXRzUGVyQ29tcG9uZW50IDgKL1dpZHRoIDIKL0hlaWdodCAxMQovQ29s
+b3JTcGFjZSAvRGV2aWNlUkdCCi9EZWNvZGVQYXJtcyAyMCAwIFIKL1NNYXNrIDIxIDAgUgo+Pgpz
+dHJlYW0NCnStadL06rXVtXx2BQ0KZW5kc3RyZWFtCmVuZG9iagoxNyAwIG9iago8PAovTGVuZ3Ro
+IDEyCi9UeXBlIC9YT2JqZWN0Ci9TdWJ0eXBlIC9JbWFnZQovRmlsdGVyIC9GbGF0ZURlY29kZQov
+Qml0c1BlckNvbXBvbmVudCA4Ci9XaWR0aCAzCi9IZWlnaHQgMTIKL0NvbG9yU3BhY2UgL0Rldmlj
+ZVJHQgovRGVjb2RlUGFybXMgMjIgMCBSCi9TTWFzayAyMyAwIFIKPj4Kc3RyZWFtDQqZ2Xmcy76r
+YaDdb+8NCmVuZHN0cmVhbQplbmRvYmoKMTggMCBvYmoKPDwKL1R5cGUgL0V4dEdTdGF0ZQovQk0g
+L0NvbXBhdGlibGUKPj4KZW5kb2JqCjE5IDAgb2JqCjw8Ci9UeXBlIC9FeHRHU3RhdGUKL0NBIDAu
+MwovY2EgMC4zCi9CTSAvQ29tcGF0aWJsZQo+PgplbmRvYmoKMjAgMCBvYmoKPDwKL0JpdHNQZXJD
+b21wb25lbnQgOAovUHJlZGljdG9yIDE1Ci9Db2x1bW5zIDIKL0NvbG9ycyAzCj4+CmVuZG9iagoy
+MSAwIG9iago8PAovTGVuZ3RoIDE1Ci9UeXBlIC9YT2JqZWN0Ci9TdWJ0eXBlIC9JbWFnZQovRmls
+dGVyIC9GbGF0ZURlY29kZQovQml0c1BlckNvbXBvbmVudCA4Ci9XaWR0aCAyCi9IZWlnaHQgMTEK
+L0NvbG9yU3BhY2UgL0RldmljZUdyYXkKPj4Kc3RyZWFtDQqJy7PH1Mkxfc/S5PNUP3ENCmVuZHN0
+cmVhbQplbmRvYmoKMjIgMCBvYmoKPDwKL0JpdHNQZXJDb21wb25lbnQgOAovUHJlZGljdG9yIDE1
+Ci9Db2x1bW5zIDMKL0NvbG9ycyAzCj4+CmVuZG9iagoyMyAwIG9iago8PAovTGVuZ3RoIDE1Ci9U
+eXBlIC9YT2JqZWN0Ci9TdWJ0eXBlIC9JbWFnZQovRmlsdGVyIC9GbGF0ZURlY29kZQovQml0c1Bl
+ckNvbXBvbmVudCA4Ci9XaWR0aCAzCi9IZWlnaHQgMTIKL0NvbG9yU3BhY2UgL0RldmljZUdyYXkK
+Pj4Kc3RyZWFtDQoCV+COpUa4wMxOsW4/oaQNCmVuZHN0cmVhbQplbmRvYmoKMjQgMCBvYmoKPDwK
+L0ZpbHRlciAvU3RhbmRhcmQKL1YgMQovUiAzCi9MZW5ndGggNDAKL1AgLTQKL08gPDg3OEEyMkM1
+Q0EzNzRDOUQ3RDBBRDkwMzdGMUI3OEJBNjU4REUzOEM2MjA3OUYzNjQ4RjkzNDk0RTA4OUY2OUY+
+Ci9VIDxBNUQ3NDgyN0M3RjVFN0VBRTg3M0U2MTc1QUE0NEJENjI4QkY0RTVFNEU3NThBNDE2NDAw
+NEU1NkZGRkEwMTA4Pgo+PgplbmRvYmoKeHJlZgowIDI1CjAwMDAwMDAwMDAgNjU1MzUgZg0KMDAw
+MDAwMDAxNSAwMDAwMCBuDQowMDAwMDAwMjUxIDAwMDAwIG4NCjAwMDAwMDAwNzggMDAwMDAgbg0K
+MDAwMDAwMDMxNCAwMDAwMCBuDQowMDAwMDAwNDMwIDAwMDAwIG4NCjAwMDAwMDA1NDYgMDAwMDAg
+bg0KMDAwMDAwNDc2OSAwMDAwMCBuDQowMDAwMDA0ODMyIDAwMDAwIG4NCjAwMDAwMDUyOTAgMDAw
+MDAgbg0KMDAwMDAwNTMyNCAwMDAwMCBuDQowMDAwMDA1MzY4IDAwMDAwIG4NCjAwMDAwMDgyNjUg
+MDAwMDAgbg0KMDAwMDAwODI5OCAwMDAwMCBuDQowMDAwMDA4Mzk2IDAwMDAwIG4NCjAwMDAwMDg0
+OTkgMDAwMDAgbg0KMDAwMDAwODU0NSAwMDAwMCBuDQowMDAwMDA4NzU5IDAwMDAwIG4NCjAwMDAw
+MDg5NzMgMDAwMDAgbg0KMDAwMDAwOTAyOCAwMDAwMCBuDQowMDAwMDA5MDk5IDAwMDAwIG4NCjAw
+MDAwMDkxNzYgMDAwMDAgbg0KMDAwMDAwOTM2MCAwMDAwMCBuDQowMDAwMDA5NDM3IDAwMDAwIG4N
+CjAwMDAwMDk2MjEgMDAwMDAgbg0KdHJhaWxlcgo8PAovUm9vdCAxIDAgUgovSW5mbyAzIDAgUgov
+SUQgWzxBNjE2NkQ1RTFFNzFDQkI4NEM2RTA3MUVFQTZCRUQ2QT4gPEE2MTY2RDVFMUU3MUNCQjg0
+QzZFMDcxRUVBNkJFRDZBPl0KL1NpemUgMjUKL0VuY3J5cHQgMjQgMCBSCj4+CnN0YXJ0eHJlZgo5
+ODI4CiUlRU9GCg==
+--0e5b7817f311643f7ece04eca92b4ba80b70c945e3c62a31592cc04b8ed0--

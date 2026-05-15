@@ -1,0 +1,44 @@
+name: Backup Database
+
+on:
+  schedule:
+    - cron: "0 3 * * *"  # 3am UTC daily
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dump Postgres
+        run: |
+          pg_dump "$DATABASE_URL" | gzip > backup-$(date +%Y%m%d).sql.gz
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Upload to Cloudflare R2
+        run: |
+          aws s3 cp backup-$(date +%Y%m%d).sql.gz s3://$R2_BUCKET/backup-$(date +%Y%m%d).sql.gz \
+            --endpoint-url https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+
+      - name: Delete backups older than 30 days
+        run: |
+          aws s3 ls s3://$R2_BUCKET/ \
+            --endpoint-url https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com | \
+            awk '{print $4}' | while read file; do
+              date=$(echo $file | grep -oP '\d{8}')
+              if [ ! -z "$date" ] && [ $(date -d "$date" +%s) -lt $(date -d "30 days ago" +%s) ]; then
+                aws s3 rm s3://$R2_BUCKET/$file \
+                  --endpoint-url https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com
+              fi
+            done
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}

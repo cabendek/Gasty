@@ -10,15 +10,25 @@ config.set_main_option("sqlalchemy.url", os.environ["DATABASE_URL"])
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Import Base after models are defined in Phase 1
-# from app.models.base import Base
-# target_metadata = Base.metadata
-target_metadata = None
+# Import all models so alembic autogenerate picks them up
+from app.models import Base  # noqa: F401, E402
+from app.models.category import Category  # noqa: F401
+from app.models.parse_error import ParseError  # noqa: F401
+from app.models.processed_message import ProcessedPubSubMessage  # noqa: F401
+from app.models.transaction import Transaction  # noqa: F401
+from app.models.user import User  # noqa: F401
+
+target_metadata = Base.metadata
 
 
 def run_migrations_offline() -> None:
     url = config.get_main_option("sqlalchemy.url")
-    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)
+    context.configure(
+        url=url,
+        target_metadata=target_metadata,
+        literal_binds=True,
+        dialect_opts={"paramstyle": "named"},
+    )
     with context.begin_transaction():
         context.run_migrations()
 
